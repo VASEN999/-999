@@ -1,6 +1,17 @@
+// 定义统一的注意事项数组（添加在文件开头）
+const noticeItems = [
+    "请认真阅读申请表并本人手写签名",
+    "所有复印件为A4纸规格且清晰可辨",
+    "如持有有效期的日签，需要先消签再办理",
+    "领馆可能会要求提供补充材料"
+];
+
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
     console.log('页面加载完成');
+    
+    // 填充注意事项列表
+    populateNoticeItems();
     
     // 添加禁用选项的CSS样式
     const style = document.createElement('style');
@@ -1121,10 +1132,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 添加注意事项
         copyText += '注意事项:\n';
-        copyText += '1. 所有材料应为A4纸规格\n';
-        copyText += '2. 所有复印件需要清晰可辨\n';
-        copyText += '3. 如有在有效期的日本签证需要先消签再办理\n';
-        copyText += '4. 领馆可能会要求提供补充材料\n';
+        noticeItems.forEach((item, index) => {
+            copyText += `${index + 1}. ${item}\n`;
+        });
         
         try {
             // 使用现代clipboard API
@@ -2643,4 +2653,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (copyBtnElement) {
         copyBtnElement.addEventListener('click', copyDocumentList);
     }
+
+    // 添加一个初始化函数，在页面加载时填充注意事项列表
+    function populateNoticeItems() {
+        const noticeList = document.getElementById('noticeItemsList');
+        if (noticeList) {
+            // 清空现有内容
+            noticeList.innerHTML = '';
+            
+            // 添加注意事项
+            noticeItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                noticeList.appendChild(li);
+            });
+        }
+    }
+
+    // 在文档加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... existing code ...
+        
+        // 填充注意事项列表
+        populateNoticeItems();
+        
+        // ... existing code ...
+    });
 }); 

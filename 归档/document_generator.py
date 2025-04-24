@@ -254,7 +254,7 @@ class DocumentGenerator:
                     options = [
                         "派出所开具的居住证确认单（原件）",
                         "工作居住证确认单（可复印或扫描）",
-                        "居住证卡片原件（需原件进馆并签署免责声明）"
+                        "居住证卡片原件（需提供原件）"
                     ]
                 
                 for i, option in enumerate(options, 1):
@@ -653,7 +653,7 @@ class DocumentGenerator:
         options = [
             "派出所开具的居住证确认单（原件）",
             "工作居住证确认单（可复印或扫描）",
-            "居住证卡片原件（需原件进馆并签署免责声明）"
+            "居住证卡片原件（需提供原件）"
         ]
         for i, option in enumerate(options, 1):
             residence_materials.append(f"{i}. {option}")

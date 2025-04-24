@@ -5,44 +5,44 @@
 2025-04-24 15:15:31,100 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
 2025-04-24 15:15:31,100 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
 2025-04-24 15:15:31,100 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
-2025-04-24 15:15:31,100 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需原件进馆并签署免责声明）']
+2025-04-24 15:15:31,100 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
 2025-04-24 15:15:31,100 - __main__ - INFO - 生成的居住证明材料:
 2025-04-24 15:15:31,100 - __main__ - INFO -   主申请人, 家庭成员2需要提供以下居住证明材料（选择一种即可）：
 2025-04-24 15:15:31,100 - __main__ - INFO -   1. 派出所开具的居住证确认单（原件）
 2025-04-24 15:15:31,100 - __main__ - INFO -   2. 工作居住证确认单（可复印或扫描）
-2025-04-24 15:15:31,100 - __main__ - INFO -   3. 居住证卡片原件（需原件进馆并签署免责声明）
+2025-04-24 15:15:31,100 - __main__ - INFO -   3. 居住证卡片原件（需提供原件）
 2025-04-24 15:15:31,100 - __main__ - INFO - --------------------------------------------------
 2025-04-24 15:15:31,100 - __main__ - INFO - 
 测试用例: 没有家庭成员的家庭申请
 2025-04-24 15:15:31,101 - __main__ - INFO - 输入数据: {"residenceConsulate": "beijing", "hukouConsulate": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "NORMAL", "identityType": "EMPLOYED", "familyMembers": []}
 2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
-2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需原件进馆并签署免责声明）']
+2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
 2025-04-24 15:15:31,101 - __main__ - INFO - 生成的居住证明材料:
 2025-04-24 15:15:31,101 - __main__ - INFO -   主申请人需要提供以下居住证明材料（选择一种即可）：
 2025-04-24 15:15:31,101 - __main__ - INFO -   1. 派出所开具的居住证确认单（原件）
 2025-04-24 15:15:31,101 - __main__ - INFO -   2. 工作居住证确认单（可复印或扫描）
-2025-04-24 15:15:31,101 - __main__ - INFO -   3. 居住证卡片原件（需原件进馆并签署免责声明）
+2025-04-24 15:15:31,101 - __main__ - INFO -   3. 居住证卡片原件（需提供原件）
 2025-04-24 15:15:31,101 - __main__ - INFO - --------------------------------------------------
 2025-04-24 15:15:31,101 - __main__ - INFO - 
 测试用例: 家庭成员缺少领区信息
 2025-04-24 15:15:31,101 - __main__ - INFO - 输入数据: {"residenceConsulate": "beijing", "hukouConsulate": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "NORMAL", "identityType": "EMPLOYED", "familyMembers": [{"name": "家庭成员1", "identityType": "RETIRED"}]}
 2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
 2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=, hukou=
-2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需原件进馆并签署免责声明）']
+2025-04-24 15:15:31,101 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
 2025-04-24 15:15:31,102 - __main__ - INFO - 生成的居住证明材料:
 2025-04-24 15:15:31,102 - __main__ - INFO -   主申请人需要提供以下居住证明材料（选择一种即可）：
 2025-04-24 15:15:31,102 - __main__ - INFO -   1. 派出所开具的居住证确认单（原件）
 2025-04-24 15:15:31,102 - __main__ - INFO -   2. 工作居住证确认单（可复印或扫描）
-2025-04-24 15:15:31,102 - __main__ - INFO -   3. 居住证卡片原件（需原件进馆并签署免责声明）
+2025-04-24 15:15:31,102 - __main__ - INFO -   3. 居住证卡片原件（需提供原件）
 2025-04-24 15:15:31,102 - __main__ - INFO - --------------------------------------------------
 2025-04-24 15:15:31,102 - __main__ - INFO - 
 测试用例: 非家庭申请
 2025-04-24 15:15:31,102 - __main__ - INFO - 输入数据: {"residenceConsulate": "beijing", "hukouConsulate": "shanghai", "applicationType": "NORMAL", "visaType": "THREE", "processType": "NORMAL", "identityType": "EMPLOYED", "familyMembers": []}
 2025-04-24 15:15:31,102 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=NORMAL
-2025-04-24 15:15:31,102 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需原件进馆并签署免责声明）']
+2025-04-24 15:15:31,102 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
 2025-04-24 15:15:31,102 - __main__ - INFO - 生成的居住证明材料:
 2025-04-24 15:15:31,102 - __main__ - INFO -   以下居住证明材料（选择一种即可）：
 2025-04-24 15:15:31,102 - __main__ - INFO -   1. 派出所开具的居住证确认单（原件）
 2025-04-24 15:15:31,102 - __main__ - INFO -   2. 工作居住证确认单（可复印或扫描）
-2025-04-24 15:15:31,102 - __main__ - INFO -   3. 居住证卡片原件（需原件进馆并签署免责声明）
+2025-04-24 15:15:31,102 - __main__ - INFO -   3. 居住证卡片原件（需提供原件）
 2025-04-24 15:15:31,102 - __main__ - INFO - --------------------------------------------------

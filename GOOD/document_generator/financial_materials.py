@@ -118,7 +118,34 @@ class FinancialMaterialsGenerator:
     
     def _generate_normal_materials(self, form_data: Dict[str, Any], visa_duration: str, identity_type: str) -> List[str]:
         """生成普通经济材料办理的财力材料"""
-        # 初始化财力材料列表
+        # 获取用户选择的经济材料类型
+        economic_material = form_data.get('economicMaterial', '')
+        residence_consulate = form_data.get('residenceConsulate', '').lower()
+        
+        # 根据经济材料类型返回对应的要求
+        if economic_material:
+            # 信用卡金卡
+            if economic_material in ['credit_card', 'creditCard']:
+                return ["信用卡金卡及以上（自行遮挡CVV码）+有效性证明（近期三个月电子账单或pos机联）", 
+                        "备注：账单联系信用卡客服索取，需体现姓名/卡号/额度/消费明细"]
+            
+            # 工资流水相关选项
+            elif economic_material in ['salary_single', 'salarySingle']:
+                return ["年工资流水10万以上（需体现公司名称、个人姓名、发放明细等）"]
+            elif economic_material in ['salary_three', 'salaryThree']:
+                return ["年工资流水20万以上（需体现公司名称、个人姓名、发放明细等）"]
+            elif economic_material in ['salary_five', 'salaryFive']:
+                return ["年工资流水50万以上（需体现公司名称、个人姓名、发放明细等）"]
+            
+            # 存款证明相关选项
+            elif economic_material in ['deposit_single', 'depositSingle']:
+                return [f"存款证明：10万以上（招商银行、建设银行、工商银行等银行可出具）"]
+            elif economic_material in ['deposit_three', 'depositThree']:
+                return [f"存款证明：50万以上（招商银行、建设银行、工商银行等银行可出具）"]
+            elif economic_material in ['deposit_five', 'depositFive']:
+                return [f"存款证明：100万以上（招商银行、建设银行、工商银行等银行可出具）"]
+        
+        # 如果没有选择经济材料类型或无法识别选项，则使用默认逻辑
         materials = []
         
         # 获取签证类型特定的存款要求
