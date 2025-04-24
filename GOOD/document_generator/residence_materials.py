@@ -55,7 +55,7 @@ class ResidenceMaterialsGenerator:
         # 准备居住证明材料选项
         if residence_consulate == 'shanghai' and residence_consulate != hukou_consulate:
             # 上海领区特殊处理
-            options_title = '以下居住证明材料（全部需要提供）'
+            options_title = '以下居住证明材料（选择一种即可）'
             shanghai_options = [
                 "居住证双面复印件（上海居住证需额外附上密码）",
                 "近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）",
@@ -71,7 +71,10 @@ class ResidenceMaterialsGenerator:
         residence_materials = []
         
         # 根据申请类型确定标题
-        if application_type == 'FAMILY':
+        if application_type == 'BINDING':
+            # 绑签申请的特殊处理
+            residence_materials.append(f"外领区户籍需提供以下居住证明材料（选择一种即可）：")
+        elif application_type == 'FAMILY':
             # 检查哪些家庭成员需要提供居住证明
             main_applicant_needs_proof = residence_proof_needed
             applicants_needing_proof = []

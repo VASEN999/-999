@@ -98,7 +98,7 @@ class TestResidenceMaterialsGenerator(unittest.TestCase):
         
         # 验证上海领区特有的居住证明材料
         self.assertTrue(len(materials) > 0)
-        self.assertIn("全部需要提供", materials[0])
+        self.assertIn("选择一种即可", materials[0])
         self.assertIn("居住证双面复印件", materials[1])
         self.assertIn("社保", materials[2])
         self.assertIn("纳税证明", materials[3])

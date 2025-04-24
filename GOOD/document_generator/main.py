@@ -119,12 +119,12 @@ class DocumentGenerator:
                 document_list['居住证明材料'] = residence_materials
                 
                 # 如果有家属（非家庭申请），添加家属居住证明说明
-                if has_family and residence_proof_needed:
-                    document_list['居住证明材料'].append("所有家属也需要提供上述居住证明材料")
+                if has_family and residence_proof_needed and application_type != 'BINDING':
+                    document_list['居住证明材料'].append("持签人家属需提供上述居住材料之一")
         
         # 6. 添加家属材料
         family_materials = self.family_generator.get_materials(form_data)
-        if family_materials:
+        if family_materials and application_type != 'BINDING':
             document_list['家属材料'] = family_materials
         
         # 7. 添加其他材料

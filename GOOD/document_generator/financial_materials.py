@@ -37,6 +37,10 @@ class FinancialMaterialsGenerator:
         # 初始化财力材料列表
         financial_materials = []
         
+        # 绑签申请的特殊处理
+        if application_type == 'BINDING':
+            return ["签证持有人的财力证明材料（能够确认年收入的存款证明或税单）"]
+            
         # 根据不同申请类型和处理方式选择不同的财力材料生成逻辑
         if application_type == 'ECONOMIC':
             # 使用家庭成员经济材料申请

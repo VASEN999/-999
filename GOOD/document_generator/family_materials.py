@@ -28,6 +28,11 @@ class FamilyMaterialsGenerator:
         Returns:
             家属材料列表
         """
+        # 绑签申请不需要家属材料，直接返回空列表
+        application_type = form_data.get('applicationType', '')
+        if application_type == 'BINDING':
+            return []
+            
         # 检查是否有家属
         has_family = self._check_has_family(form_data)
         
@@ -115,9 +120,12 @@ class FamilyMaterialsGenerator:
     
     def _check_has_family(self, form_data: Dict[str, Any]) -> bool:
         """检查是否有家属"""
-        # 如果是绑签或家庭申请，一定有家属
+        # 如果是绑签申请，返回False（绑签申请自身就是作为家属申请，不需要家属材料）
+        # 如果是家庭申请，返回True
         application_type = form_data.get('applicationType', '')
-        if application_type in ['BINDING', 'FAMILY']:
+        if application_type == 'BINDING':
+            return False
+        elif application_type == 'FAMILY':
             return True
         
         # 检查其他家属相关字段
