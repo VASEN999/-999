@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>材料显示测试</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        .border-start.border-primary { border-left-width: 3px !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">材料显示测试</h1>
+        
+        <div id="documentList"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 测试数据
+            const documentList = {
+                "其他材料": [
+                    "1. 和纸质照片一致的电子版照片"
+                ],
+                "基本信息": [
+                    "居住地领区: 北京",
+                    "户籍所在地领区: 上海",
+                    "申请类型: 三年多次往返签证"
+                ],
+                "基本材料": [
+                    "护照原件（剩余有效期大于7个月）",
+                    "签证申请表 + 小两寸白底证件照（近期3个月内拍摄）",
+                    "个人信息处理同意书 + 签证状态确认书",
+                    "户口本复印件（家庭户：户首页 + 本人页）"
+                ],
+                "家属材料": [
+                    "1.基本材料内的1、2、3、4项目",
+                    "2.与主申请人的关系证明",
+                    "3. 家庭成员1需要提供退休证复印件或相关退休证明材料",
+                    "4. 家庭成员2需要提供学信网在线学籍验证报告"
+                ],
+                "居住证明材料": [
+                    "主申请人, 家庭成员2需要提供以下居住证明材料（选择一种即可）：",
+                    "1. 派出所开具的居住证确认单（原件）",
+                    "2. 工作居住证确认单（可复印或扫描）",
+                    "3. 居住证卡片原件（需原件进馆并签署免责声明）"
+                ],
+                "财力证明": [
+                    "存款证明：确认申请人本人持有50万以上的可验证存款证明（招商银行、建设银行、工商银行等银行可出具）",
+                    "税单要求：金额大于3万的税单"
+                ]
+            };
+            
+            // 显示文档列表
+            displayDocumentList(documentList);
+            
+            // 渲染材料清单函数
+            function displayDocumentList(documentList) {
+                const listContainer = document.getElementById('documentList');
+                
+                // 清空现有内容
+                listContainer.innerHTML = '';
+                
+                // 创建申请信息摘要
+                const summaryDiv = document.createElement('div');
+                summaryDiv.className = 'alert alert-info mb-3';
+                summaryDiv.innerHTML = `
+                    <h6 class="alert-heading mb-2">申请信息摘要</h6>
+                    <p class="mb-1">居住地领区: 北京</p>
+                    <p class="mb-1">户籍所在地领区: 上海</p>
+                    <p class="mb-1">申请类型: 三年多次往返签证</p>
+                    <p class="mb-0">签证类型: 三年多次签证</p>
+                `;
+                listContainer.appendChild(summaryDiv);
+                
+                // 定义材料分类的显示顺序
+                const categoryOrder = [
+                    '基本材料',
+                    '财力证明',
+                    '家属材料',
+                    '居住证明材料',
+                    '其他材料'
+                ];
+                
+                // 按照指定顺序显示材料分类
+                categoryOrder.forEach(category => {
+                    if (documentList[category] && documentList[category].length > 0) {
+                        // 创建分类标题
+                        const categoryTitle = document.createElement('div');
+                        categoryTitle.className = 'mb-3';
+                        categoryTitle.innerHTML = `<h5 class="mb-2">${category}</h5>`;
+                        
+                        // 创建材料列表
+                        const materialsList = document.createElement('div');
+                        materialsList.className = 'ms-4';
+                        
+                        // 处理每个材料项
+                        let currentIndex = 1;
+                        
+                        if (category === '居住证明材料') {
+                            // 处理居住证明材料的特殊结构
+                            console.log('所有居住证明材料项:', documentList[category]);
+                            
+                            // 直接使用后端返回的第一行作为标题，不进行自己的解析
+                            const titleItem = documentList[category][0];
+                            const materialItem = document.createElement('div');
+                            materialItem.className = 'alert alert-light border mb-3';
+                            materialItem.innerHTML = titleItem;
+                            materialsList.appendChild(materialItem);
+                            
+                            // 处理剩余的居住证明材料项（跳过第一行标题）
+                            for (let i = 1; i < documentList[category].length; i++) {
+                                const item = documentList[category][i];
+                                const materialItem = document.createElement('div');
+                                materialItem.className = 'mb-2 ps-3 border-start border-primary';
+                                materialItem.innerHTML = item;
+                                materialsList.appendChild(materialItem);
+                            }
+                        } else if (category === '家属材料') {
+                            // 特殊处理家属材料，直接显示后端返回的内容
+                            console.log('家属材料项:', documentList[category]);
+                            
+                            // 直接显示所有家属材料项
+                            documentList[category].forEach(item => {
+                                const materialItem = document.createElement('div');
+                                materialItem.className = 'mb-2 ps-3 border-start border-primary';
+                                materialItem.innerHTML = item;
+                                materialsList.appendChild(materialItem);
+                            });
+                        } else {
+                            // 其他材料类别的处理逻辑保持不变
+                            documentList[category].forEach(item => {
+                                const materialItem = document.createElement('div');
+                                materialItem.className = 'mb-2 ps-3 border-start border-primary';
+                                
+                                // 检查是否是带序号的项目
+                                if (/^\d+\.\s/.test(item)) {
+                                    materialItem.innerHTML = item;
+                                } else {
+                                    materialItem.innerHTML = `${currentIndex}. ${item}`;
+                                    currentIndex++;
+                                }
+                                
+                                materialsList.appendChild(materialItem);
+                            });
+                        }
+                        
+                        listContainer.appendChild(categoryTitle);
+                        listContainer.appendChild(materialsList);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

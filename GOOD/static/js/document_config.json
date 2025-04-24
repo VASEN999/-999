@@ -1,0 +1,223 @@
+{
+  "basicMaterials": {
+    "all": [
+      "护照原件（剩余有效期大于7个月）",
+      "签证申请表 + 小两寸白底证件照（近期3个月内拍摄）",
+      "个人信息处理同意书 + 签证状态确认书",
+      "户口本复印件"
+    ],
+    "details": {
+      "family": "家庭户：户首页 + 本人页",
+      "collective": "集体户：户首页 + 本人页"
+    }
+  },
+  "identityMaterials": {
+    "EMPLOYED": [
+      "近一年的个人所得税税单（从去年到今年相同月份）"
+    ],
+    "RETIRED": [
+      "退休证复印件"
+    ],
+    "FREELANCER": [
+      "自由职业情况说明",
+      "与自由职业收入相关的证明文件（流水、股票交割单等）"
+    ],
+    "STUDENT": [
+      "学信网在线学籍验证报告（领区内大学在读）"
+    ],
+    "CHILD": []
+  },
+  "residenceMaterials": {
+    "options": [
+      "派出所开具的居住证确认单（原件）",
+      "工作居住证确认单（可复印或扫描）",
+      "居住证卡片原件（需原件进馆并签署免责声明）"
+    ]
+  },
+  "economicMaterials": {
+    "bankStatement": {
+      "description": "可验证的银行存款证明原件",
+      "supportedBanks": [
+        "招商银行", "建设银行", "工商银行", "民生银行", "浦发银行（需电子版，带二维码）", 
+        "平安银行（电子版）", "光大银行（电子版）", "交通银行（需在有效期内，可开电子版）",
+        "中信银行（需在有效期内，可开电子版）", "兴业银行（电子版）", "北京银行"
+      ]
+    },
+    "taxCertificate": {
+      "description": "近一年的个人所得税税单（从去年到今年相同月份）"
+    }
+  },
+  "visaRequirements": {
+    "SINGLE": {
+      "bankBalance": {
+        "amount": 100000,
+        "description": "确认申请人本人持有10万以上的可验证存款证明"
+      },
+      "taxAmount": {
+        "amount": 10000,
+        "description": "金额大于1万的税单"
+      },
+      "education": {
+        "description": "特定大学本科学历及以上",
+        "student": "提供学信网在线学籍验证报告（领区内大学在读）",
+        "graduate": "提供学信网电子学历注册备案表（毕业三年内）"
+      }
+    },
+    "THREE": {
+      "bankBalance": {
+        "amount": 500000,
+        "description": "确认申请人本人持有50万以上的可验证存款证明"
+      },
+      "taxAmount": {
+        "amount": 30000,
+        "description": "金额大于3万的税单"
+      },
+      "simplified": {
+        "description": "新政简化条件",
+        "requirements": [
+          "提供近三年的两次日本签证的签证发放通知书（非特大单次）",
+          "近期5年出入境记录"
+        ]
+      }
+    },
+    "FIVE": {
+      "bankBalance": {
+        "amount": 1000000,
+        "description": "确认申请人本人持有100万以上的可验证存款证明"
+      },
+      "taxAmount": {
+        "amount": 80000,
+        "description": "金额大于8万的税单"
+      }
+    }
+  },
+  "familyApplications": {
+    "joinMainApplicant": {
+      "description": "与主申请人一起的申请",
+      "materials": [
+        "基础材料",
+        "关系证明"
+      ]
+    },
+    "afterMainApplicant": {
+      "description": "主申请人已经出签的再次绑签",
+      "materials": [
+        "基础材料",
+        "主申请人之前申请的经济材料",
+        "主申护照首页和签证页复印件",
+        "关系证明"
+      ],
+      "note": "单次不可出签后再绑"
+    },
+    "useRelativeEconomic": {
+      "description": "使用直系亲属经济材料作为独立申请人申请（非绑签）",
+      "materials": [
+        "基础材料",
+        "直系亲属经济材料",
+        "关系证明"
+      ],
+      "note": "只能办理单次"
+    }
+  },
+  "riskAssessment": {
+    "highRiskGroups": [
+      "高危户籍", "自由职业", "低学历", "无纳税", "无社保", "护照白本申请"
+    ],
+    "taxVerification": "对于纳税申报地点进行确认，如果有税单盖章，按需补充社保+营业执照确认居住条件",
+    "frequentJobChange": "对于过去五年社保缴纳单位变更频繁的申请人，需通过滞留风险评估方案"
+  },
+  "consulateRequirements": {
+    "beijing": {
+      "residenceRules": [
+        "能够确认在领区内长期停留居住",
+        "无犯罪记录",
+        "持有剩余有效期大于7个月的中国普通护照",
+        "无有效期内的日本签证（包括商务、医疗等其他类型签证）",
+        "本人或直系亲属具有一定的经济能力"
+      ],
+      "specialCases": {
+        "outOfRegionStudent": "外领区在读学生：无法在本领区办理",
+        "graduateFromOtherRegion": "外领区就读已毕业的本领区户籍：可申请单次特大条件签证",
+        "workInOtherRegion": "外领区工作的本领区户籍职员：无法在本领区办理",
+        "workHerePayTaxOutside": "本领区工作但纳税在外领区：需提供单位营业执照复印件和社保权益单。若社保也在外领区且无其他本领区工作证明，无法办理",
+        "foreignResident": "境外身份申请人：需在所在地使领馆申请，无法在本领区办理"
+      }
+    },
+    "shanghai": {
+      "residenceRules": [
+        "能够确认在领区内长期停留居住",
+        "无犯罪记录",
+        "持有剩余有效期大于7个月的中国普通护照",
+        "无有效期内的日本签证（包括商务、医疗等其他类型签证）",
+        "本人或直系亲属具有一定的经济能力"
+      ]
+    }
+  },
+  "processMethods": {
+    "TAX": {
+      "description": "递签税单办理",
+      "requirements": {
+        "beijing": {
+          "SINGLE": {
+            "amount": 8000,
+            "description": "显示年纳税大于8千的税单（北京领区）"
+          },
+          "THREE": {
+            "amount": 28000,
+            "description": "显示年纳税大于2.8万的税单（北京领区）"
+          },
+          "FIVE": {
+            "amount": 80000,
+            "description": "显示年纳税大于8万的税单（北京领区）"
+          }
+        },
+        "shanghai": {
+          "SINGLE": {
+            "amount": 800,
+            "description": "显示年纳税大于800元的税单（上海领区）"
+          },
+          "THREE": {
+            "amount": 18000,
+            "description": "显示年纳税大于1.8万的税单（上海领区）"
+          },
+          "FIVE": {
+            "amount": 85000,
+            "description": "显示年纳税大于8.5万的税单（上海领区）"
+          }
+        }
+      }
+    },
+    "STUDENT": {
+      "description": "特定大学生单次办理",
+      "requirements": {
+        "materials": [
+          "基本材料",
+          "学信网在线学籍验证报告（领区内大学在读）",
+          "居住证明材料"
+        ]
+      }
+    },
+    "NORMAL": {
+      "description": "普通经济材料办理",
+      "requirements": {
+        "materials": [
+          "基本材料",
+          "经济材料（根据领区和签证类型）",
+          "居住证明材料"
+        ]
+      }
+    },
+    "SIMPLIFIED": {
+      "description": "新政简化三年办理",
+      "requirements": {
+        "materials": [
+          "基本材料",
+          "提供近三年的两次日本签证的签证发放通知书原件（非特大单次）",
+          "近期5年出入境记录原件",
+          "居住证明材料"
+        ],
+        "note": "适用于近三年曾持有两次或以上日本签证并确实访问过日本的申请人"
+      }
+    }
+  }
+} 

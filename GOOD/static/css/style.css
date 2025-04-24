@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+/* 主要样式文件 */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+}
+
+/* 容器宽度 */
+.container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+/* 标题样式 */
+.card-header {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    padding: 10px;
+}
+
+/* 表单样式增强 */
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 表单间距调整 */
+.form-label {
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+/* 选项卡片样式 */
+.option-card {
+    padding: 6px;
+    transition: all 0.3s;
+    border-radius: 4px;
+    min-height: 70px;
+}
+
+.option-icon {
+    font-size: 16px;
+}
+
+.option-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+}
+
+.very-small {
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+/* 家庭成员样式 */
+.family-member {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 6px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+}
+
+.family-member-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.family-member-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 提示信息 */
+.alert {
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+/* 材料类别标题 */
+.document-category {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0d6efd;
+    color: #0a58ca;
+}
+
+/* 其他材料样式 */
+.other-materials {
+    background-color: #f8f9fa;
+}
+
+/* 材料清单项样式 */
+.document-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.document-item:last-child {
+    border-bottom: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .form-check-inline {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .document-item {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .option-card {
+        min-height: 60px;
+        padding: 4px;
+    }
+    
+    .option-icon {
+        font-size: 14px;
+    }
+    
+    .option-title {
+        font-size: 12px;
+    }
+    
+    .very-small {
+        font-size: 10px;
+    }
+}
+
+/* 提交按钮悬停效果 */
+.btn-primary:hover {
+    background-color: #0a58ca;
+    border-color: #0a58ca;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* 动画效果 */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 复制按钮样式 */
+#copyBtn {
+    font-size: 12px;
+    padding: 2px 8px;
+    transition: all 0.2s ease;
+}
+
+#copyBtn:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* 注意事项区域 */
+.notice-section {
+    background-color: #f1f8ff;
+    border-left: 4px solid #0d6efd;
+}
+
+/* 标签页样式 */
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.btn-check:checked + .option-card {
+    background-color: #e8f0fe;
+    border-color: #0d6efd;
+    color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-check:disabled + .option-card,
+.btn-check[disabled] + .option-card {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 禁用的选项卡片 */
+.btn-check:disabled + .option-card {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+/* 结果页面样式 */
+.document-list-section {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+}
+
+.copy-instructions {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* 加载状态容器 */
+.loading-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* 表单元素样式 */
+.form-control, .form-select {
+    padding: 5px 8px;
+    font-size: 14px;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+/* 提高按钮密度 */
+.btn {
+    padding: 5px 10px;
+}
+
+/* 减小间距 */
+.g-1 > * {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+/* 结果页样式 */
+#documentList .list-group-item {
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+/* 禁用状态的样式 */
+.option-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.option-card.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-check:disabled + .option-card,
+.btn-check[disabled] + .option-card {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.btn-check:disabled + .option-card:hover,
+.btn-check[disabled] + .option-card:hover {
+    transform: none;
+    box-shadow: none;
+} 
