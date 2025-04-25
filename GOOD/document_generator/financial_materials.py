@@ -131,19 +131,19 @@ class FinancialMaterialsGenerator:
             
             # 工资流水相关选项
             elif economic_material in ['salary_single', 'salarySingle']:
-                return ["年工资流水10万以上（需体现公司名称、个人姓名、发放明细等）"]
+                return ["年工资流水10万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             elif economic_material in ['salary_three', 'salaryThree']:
-                return ["年工资流水20万以上（需体现公司名称、个人姓名、发放明细等）"]
+                return ["年工资流水20万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             elif economic_material in ['salary_five', 'salaryFive']:
-                return ["年工资流水50万以上（需体现公司名称、个人姓名、发放明细等）"]
+                return ["年工资流水50万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             
             # 存款证明相关选项
             elif economic_material in ['deposit_single', 'depositSingle']:
-                return [f"存款证明：10万以上（招商银行、建设银行、工商银行等银行可出具）"]
+                return [f"存款证明：10万以上（需要是可验证银行开具的存款证明（需提前确认））"]
             elif economic_material in ['deposit_three', 'depositThree']:
-                return [f"存款证明：50万以上（招商银行、建设银行、工商银行等银行可出具）"]
+                return [f"存款证明：50万以上（需要是可验证银行开具的存款证明（需提前确认））"]
             elif economic_material in ['deposit_five', 'depositFive']:
-                return [f"存款证明：100万以上（招商银行、建设银行、工商银行等银行可出具）"]
+                return [f"存款证明：100万以上（需要是可验证银行开具的存款证明（需提前确认））"]
         
         # 如果没有选择经济材料类型或无法识别选项，则使用默认逻辑
         materials = []
