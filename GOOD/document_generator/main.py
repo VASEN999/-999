@@ -194,7 +194,9 @@ class DocumentGenerator:
             elif family_relation == 'CHILD':
                 relation_text = '子女'
             
-            visa_type_display = "三年多次往返签证" if visa_duration == 'THREE' else "五年多次往返签证"
+            # 使用家属签证类型值获取正确的显示文本
+            family_visa_type = form_data.get('familyVisaType', '')
+            visa_type_display = "三年多次往返签证" if family_visa_type == 'THREE' else "五年多次往返签证"
             visa_type_text = f"申请人是{visa_type_display}持有人的{relation_text}"
         elif process_type == 'SIMPLIFIED':
             # 新政简化三年办理方式的特殊处理

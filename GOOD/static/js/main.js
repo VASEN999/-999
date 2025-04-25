@@ -828,32 +828,59 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 获取申请类型和签证类型的文本
         const applicationType = getApplicationTypeText(document.querySelector('input[name="applicationType"]:checked')?.value);
+        const applicationTypeValue = document.querySelector('input[name="applicationType"]:checked')?.value;
         let visaTypeText = '';
         const selectedVisaType = document.querySelector('input[name="visaType"]:checked')?.value;
         const selectedProcessType = document.querySelector('input[name="processType"]:checked')?.value;
         
-        if (['TAX', 'NORMAL', 'SIMPLIFIED'].includes(selectedProcessType)) {
-            switch(selectedVisaType) {
-                case 'SINGLE': visaTypeText = '单次签证'; break;
-                case 'THREE': visaTypeText = '三年多次签证'; break;
-                case 'FIVE': visaTypeText = '五年多次签证'; break;
-                default: visaTypeText = '单次签证';
+        // 检查是否有后端返回的基本信息数据
+        if (documentList['基本信息'] && documentList['基本信息'].length > 0) {
+            // 创建申请信息摘要 - 使用后端返回的数据
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'alert alert-info mb-3';
+            summaryDiv.innerHTML = `<h6 class="alert-heading mb-2">申请信息摘要</h6>`;
+            
+            // 添加每一项基本信息
+            documentList['基本信息'].forEach(item => {
+                const pElem = document.createElement('p');
+                pElem.className = item === documentList['基本信息'][documentList['基本信息'].length - 1] ? 'mb-0' : 'mb-1';
+                pElem.innerHTML = item;
+                summaryDiv.appendChild(pElem);
+            });
+            
+            listContainer.appendChild(summaryDiv);
+        } else {
+            // 后备方案：如果后端没有返回基本信息，使用前端生成的信息
+            // 处理签证类型文本
+            if (['TAX', 'NORMAL', 'SIMPLIFIED'].includes(selectedProcessType)) {
+                switch(selectedVisaType) {
+                    case 'SINGLE': visaTypeText = '单次签证'; break;
+                    case 'THREE': visaTypeText = '三年多次签证'; break;
+                    case 'FIVE': visaTypeText = '五年多次签证'; break;
+                    default: visaTypeText = '单次签证';
+                }
+            } else if (selectedProcessType === 'STUDENT') {
+                visaTypeText = '单次签证（学生专用）';
             }
-        } else if (selectedProcessType === 'STUDENT') {
-            visaTypeText = '单次签证（学生专用）';
+            
+            // 对于绑签申请，使用家属签证类型
+            if (applicationTypeValue === 'BINDING') {
+                const familyVisaType = document.getElementById('familyVisaType')?.value;
+                visaTypeText = familyVisaType === 'THREE' ? '三年多次往返签证' : '五年多次往返签证';
+            }
+            
+            // 创建申请信息摘要
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'alert alert-info mb-3';
+            summaryDiv.innerHTML = `
+                <h6 class="alert-heading mb-2">申请信息摘要</h6>
+                <p class="mb-1">居住地领区: ${getConsulateText(document.querySelector('input[name="residenceConsulate"]:checked')?.value)}</p>
+                <p class="mb-1">户籍所在地领区: ${getConsulateText(document.querySelector('input[name="hukouConsulate"]:checked')?.value)}</p>
+                <p class="mb-1">申请类型: ${applicationType}</p>
+                <p class="mb-0">签证类型: ${visaTypeText}</p>
+            `;
+            listContainer.appendChild(summaryDiv);
         }
-        
-        // 创建申请信息摘要
-        const summaryDiv = document.createElement('div');
-        summaryDiv.className = 'alert alert-info mb-3';
-        summaryDiv.innerHTML = `
-            <h6 class="alert-heading mb-2">申请信息摘要</h6>
-            <p class="mb-1">居住地领区: ${getConsulateText(document.querySelector('input[name="residenceConsulate"]:checked')?.value)}</p>
-            <p class="mb-1">户籍所在地领区: ${getConsulateText(document.querySelector('input[name="hukouConsulate"]:checked')?.value)}</p>
-            <p class="mb-1">申请类型: ${applicationType}</p>
-            <p class="mb-0">签证类型: ${visaTypeText}</p>
-        `;
-        listContainer.appendChild(summaryDiv);
         
         // 定义材料分类的显示顺序
         const categoryOrder = [
