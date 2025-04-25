@@ -62,10 +62,22 @@ class ResidenceMaterialsGenerator:
                 "近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）"
             ]
             options = shanghai_options
+        elif residence_consulate == 'beijing':
+            # 北京领区特殊处理
+            options_title = '以下居住证明材料（选择一种即可）'
+            beijing_options = [
+                "派出所开具的居住证确认单（原件）",
+                "工作居住证确认单（可复印或扫描）",
+                "居住证卡片原件（需提供原件）"
+            ]
+            options = beijing_options
         else:
             # 其他领区一般处理
             options_title = '以下居住证明材料（选择一种即可）'
             options = self.config.get('residenceMaterials', {}).get('options', [])
+            # 如果配置中没有选项，提供默认选项
+            if not options:
+                options = ["居住证明（请咨询领馆要求）"]
         
         # 构建居住证明材料清单
         residence_materials = []
@@ -121,9 +133,9 @@ class ResidenceMaterialsGenerator:
                 # 修改为更清晰的格式
                 residence_materials.append(f"{', '.join(applicants_needing_proof)}需要提供{options_title}：")
             else:
-                # 如果没有人需要提供居住证明，添加一个默认说明
-                residence_materials.append(f"{options_title}：")
+                # 如果没有人需要提供居住证明，返回空列表
                 logger.info("家庭申请中没有发现需要居住证明的成员")
+                return []
         else:
             # 单人申请时使用原来的格式
             residence_materials.append(f"{options_title}：")

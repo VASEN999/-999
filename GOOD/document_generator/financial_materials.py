@@ -39,7 +39,7 @@ class FinancialMaterialsGenerator:
         
         # 绑签申请的特殊处理
         if application_type == 'BINDING':
-            return ["签证持有人的财力证明材料（能够确认年收入的存款证明或税单）"]
+            return ["签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）"]
             
         # 根据不同申请类型和处理方式选择不同的财力材料生成逻辑
         if application_type == 'ECONOMIC':
@@ -137,13 +137,28 @@ class FinancialMaterialsGenerator:
             elif economic_material in ['salary_five', 'salaryFive']:
                 return ["年工资流水50万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             
-            # 存款证明相关选项
+            # 存款/理财证明相关选项
             elif economic_material in ['deposit_single', 'depositSingle']:
-                return [f"存款证明：10万以上（需要是可验证银行开具的存款证明（需提前确认））"]
+                # 上海领区需要额外提供收入流水
+                if residence_consulate == 'shanghai':
+                    return [f"存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
+                            f"近期一年的收入流水"]
+                else:
+                    return [f"存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
             elif economic_material in ['deposit_three', 'depositThree']:
-                return [f"存款证明：50万以上（需要是可验证银行开具的存款证明（需提前确认））"]
+                # 上海领区需要额外提供收入流水
+                if residence_consulate == 'shanghai':
+                    return [f"存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
+                            f"近期一年的收入流水"]
+                else:
+                    return [f"存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
             elif economic_material in ['deposit_five', 'depositFive']:
-                return [f"存款证明：100万以上（需要是可验证银行开具的存款证明（需提前确认））"]
+                # 上海领区需要额外提供收入流水
+                if residence_consulate == 'shanghai':
+                    return [f"存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
+                            f"近期一年的收入流水"]
+                else:
+                    return [f"存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
         
         # 如果没有选择经济材料类型或无法识别选项，则使用默认逻辑
         materials = []
@@ -153,7 +168,7 @@ class FinancialMaterialsGenerator:
         bank_req = visa_req.get('bankBalance', {})
         tax_req = visa_req.get('taxAmount', {})
         
-        # 添加存款证明要求
+        # 添加存款/理财证明要求
         if bank_req:
             bank_amount = bank_req.get('amount', 0) / 10000  # 转换为万
             bank_description = bank_req.get('description', '')
@@ -163,9 +178,13 @@ class FinancialMaterialsGenerator:
             banks_text = "、".join(supported_banks[:3]) + "等银行"
             
             if bank_description:
-                materials.append(f"存款证明：{bank_description}（{banks_text}可出具）")
+                materials.append(f"存款/理财证明：{bank_description}（{banks_text}可出具）")
             else:
-                materials.append(f"存款证明：需提供{bank_amount}万以上的存款证明（{banks_text}可出具）")
+                materials.append(f"存款/理财证明：需提供{bank_amount}万以上的存款/理财证明（{banks_text}可出具）")
+            
+            # 为上海领区添加额外的收入流水要求
+            if residence_consulate == 'shanghai':
+                materials.append("近期一年的收入流水")
         
         # 添加税单要求（仅对在职人员）
         if identity_type == 'EMPLOYED' and tax_req:
@@ -181,4 +200,4 @@ class FinancialMaterialsGenerator:
     
     def _generate_family_economic_materials(self) -> List[str]:
         """生成使用家庭成员经济材料的财力材料"""
-        return ["使用直系亲属的经济材料（存款证明、税单等）", "需提供关系证明"] 
+        return ["使用直系亲属的经济材料（存款/理财证明、税单等）", "需提供关系证明"] 

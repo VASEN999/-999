@@ -130,8 +130,9 @@ class RiskAssessmentService:
     
     def _check_identity_risk(self, identity_type, risk_result):
         """检查身份相关风险"""
-        if identity_type == 'FREELANCER':
+        if identity_type == 'FREELANCER' or identity_type == 'FREELANCE':
             risk_result['risk_factors'].append('自由职业')
+            logger.debug(f"检测到自由职业身份类型: {identity_type}，标记为高风险因素")
     
     def _check_education_risk(self, education_level, risk_result):
         """检查教育程度相关风险"""

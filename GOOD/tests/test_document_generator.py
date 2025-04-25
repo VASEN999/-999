@@ -88,7 +88,7 @@ class TestDocumentGenerator(unittest.TestCase):
         
         # 验证结果
         self.assertIsInstance(result, list)
-        self.assertTrue(any('存款证明' in item for item in result))
+        self.assertTrue(any('存款/理财证明' in item for item in result))
         self.assertTrue(any('10万' in item for item in result))
     
     def test_residence_materials_different_consulate(self):
@@ -186,7 +186,7 @@ class TestDocumentGenerator(unittest.TestCase):
         self.assertTrue(any('护照原件' in item for item in result['基本材料']))
         
         # 验证财力证明内容
-        self.assertTrue(any('存款证明' in item for item in result['财力证明']))
+        self.assertTrue(any('存款/理财证明' in item for item in result['财力证明']))
         
         # 验证"在职证明"在某个章节中
         found_work_cert = False

@@ -24,7 +24,7 @@ class IdentityMaterialsGenerator:
         
         Args:
             identity_type: 身份类型（EMPLOYED-在职人员, STUDENT-学生, RETIRED-退休人员, 
-                          FREELANCER-自由职业者, CHILD-儿童）
+                          FREELANCER/FREELANCE-自由职业者, CHILD-儿童）
             process_type: 处理类型（NORMAL-普通经济材料, TAX-税单办理, STUDENT-学生办理, 
                          SIMPLIFIED-新政简化办理）
             
@@ -36,6 +36,11 @@ class IdentityMaterialsGenerator:
             return []
             
         identity_type = identity_type.upper()
+        
+        # 统一FREELANCE为FREELANCER进行处理
+        if identity_type == 'FREELANCE':
+            identity_type = 'FREELANCER'
+            logger.debug("将FREELANCE标识转换为FREELANCER进行统一处理")
         
         # 特殊处理逻辑
         if process_type == 'STUDENT' or (process_type in ['NORMAL', 'SIMPLIFIED'] and identity_type == 'STUDENT'):

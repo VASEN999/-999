@@ -544,7 +544,7 @@ class DocumentGenerator:
         if application_type == 'ECONOMIC':
             # 无论是北京还是上海领区，都显示相同的材料清单
             materials = [
-                "1. 需提供直系亲属的经济材料（如：税单/存款证明）", 
+                "1. 需提供直系亲属的经济材料（如：税单/存款/理财证明）", 
                 "2. 与直系亲属的关系证明（如：户口本/出生证明/结婚证）"
             ]
             return materials
@@ -564,13 +564,13 @@ class DocumentGenerator:
             if economic_material:
                 # 家庭申请单次签证不能使用信用卡
                 if application_type == 'FAMILY' and visa_duration in ['SINGLE', 'single', '单次'] and economic_material == 'credit_card':
-                    materials = ["家庭申请单次签证不能使用信用卡，请使用存款证明或其他财力证明"]
+                    materials = ["家庭申请单次签证不能使用信用卡，请使用存款/理财证明或其他财力证明"]
                 elif economic_material == 'deposit_single':
-                    materials = ["10万元以上存款证明原件（需要是可验证银行开具的存款证明）"]
+                    materials = ["10万元以上存款/理财证明原件（需要是可验证银行开具的存款/理财证明）"]
                 elif economic_material == 'deposit_three':
-                    materials = ["50万元以上存款证明原件（需要是可验证银行开具的存款证明）"]
+                    materials = ["50万元以上存款/理财证明原件（需要是可验证银行开具的存款/理财证明）"]
                 elif economic_material == 'deposit_five':
-                    materials = ["100万元以上存款证明原件（需要是可验证银行开具的存款证明）"]
+                    materials = ["100万元以上存款/理财证明原件（需要是可验证银行开具的存款/理财证明）"]
                 elif economic_material == 'credit_card':
                     materials = [
                         "信用卡正反面复印件（自行遮挡CVV码）",
@@ -593,9 +593,9 @@ class DocumentGenerator:
                         "备注：近期6个月工资项流水需要是连续的"
                     ]
                 else:
-                    materials = ["存款证明或其他财力证明"]
+                    materials = ["存款/理财证明或其他财力证明"]
             else:
-                materials = ["存款证明或其他财力证明"]
+                materials = ["存款/理财证明或其他财力证明"]
         elif process_type == 'STUDENT':
             # 特定大学生单次办理无需财力证明
             return []
@@ -610,15 +610,15 @@ class DocumentGenerator:
         else:
             # 其他情况下根据身份类型选择默认的财力证明材料
             if identity_type == 'EMPLOYED':
-                materials = ["银行存款证明（建议10万元以上）或活期存折复印件"]
+                materials = ["银行存款/理财证明（建议10万元以上）或活期存折复印件"]
             elif identity_type == 'STUDENT':
-                materials = ["父母银行存款证明（建议10万元以上）或活期存折复印件"]
+                materials = ["父母银行存款/理财证明（建议10万元以上）或活期存折复印件"]
             elif identity_type == 'RETIRED':
-                materials = ["银行存款证明（建议10万元以上）或活期存折复印件"]
+                materials = ["银行存款/理财证明（建议10万元以上）或活期存折复印件"]
             elif identity_type == 'FREELANCE':
-                materials = ["银行存款证明（建议10万元以上）或活期存折复印件"]
+                materials = ["银行存款/理财证明（建议10万元以上）或活期存折复印件"]
             elif identity_type == 'CHILD':
-                materials = ["监护人银行存款证明（建议10万元以上）或活期存折复印件"]
+                materials = ["监护人银行存款/理财证明（建议10万元以上）或活期存折复印件"]
         
         return materials
     

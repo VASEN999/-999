@@ -102,11 +102,15 @@ class FamilyMaterialsGenerator:
                         family_materials.append(f"{member_idx}. {member_name}需要由监护人陪同并提供监护关系证明")
                         member_idx += 1
                     elif member_identity == 'RETIRED':
-                        family_materials.append(f"{member_idx}. {member_name}需要提供退休证复印件或相关退休证明材料")
-                        member_idx += 1
-                    elif member_identity == 'FREELANCER':
-                        family_materials.append(f"{member_idx}. {member_name}需要提供自由职业情况说明及相关收入证明")
-                        member_idx += 1
+                        # 北京领区的退休人员材料将统一显示在其他材料部分
+                        if residence_consulate != 'beijing':
+                            family_materials.append(f"{member_idx}. {member_name}需要提供退休证复印件或相关退休证明材料")
+                            member_idx += 1
+                    elif member_identity == 'FREELANCER' or member_identity == 'FREELANCE':
+                        # 自由职业者的材料要求统一显示在其他材料部分
+                        # 不再在家属材料中显示
+                        logger.debug(f"家庭成员 {member_name} 是自由职业者({member_identity})，材料将在其他材料部分显示")
+                        pass
         
         else:
             # 一般家属材料（普通申请但有家属）
@@ -156,6 +160,7 @@ class FamilyMaterialsGenerator:
             'STUDENT': '学生需提供学信网材料',
             'CHILD': '未成年人需由监护人陪同',
             'RETIRED': '退休人员需提供退休证',
-            'FREELANCER': '自由职业者需提供财力证明'
+            'FREELANCER': '自由职业者需提供财力证明',
+            'FREELANCE': '自由职业者需提供财力证明'
         }
         return identity_notes.get(identity_type, '') 

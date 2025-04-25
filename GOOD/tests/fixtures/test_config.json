@@ -36,7 +36,7 @@
   },
   "economicMaterials": {
     "bankStatement": {
-      "description": "可验证的银行存款证明原件",
+      "description": "可验证的银行存款/理财证明原件",
       "supportedBanks": [
         "招商银行", "建设银行", "工商银行"
       ]
@@ -49,7 +49,7 @@
     "SINGLE": {
       "bankBalance": {
         "amount": 100000,
-        "description": "确认申请人本人持有10万以上的可验证存款证明"
+        "description": "确认申请人本人持有10万以上的可验证存款/理财证明"
       },
       "taxAmount": {
         "amount": 10000,
@@ -64,7 +64,7 @@
     "THREE": {
       "bankBalance": {
         "amount": 500000,
-        "description": "确认申请人本人持有50万以上的可验证存款证明"
+        "description": "确认申请人本人持有50万以上的可验证存款/理财证明"
       },
       "taxAmount": {
         "amount": 30000,
@@ -81,7 +81,7 @@
     "FIVE": {
       "bankBalance": {
         "amount": 1000000,
-        "description": "确认申请人本人持有100万以上的可验证存款证明"
+        "description": "确认申请人本人持有100万以上的可验证存款/理财证明"
       },
       "taxAmount": {
         "amount": 80000,
