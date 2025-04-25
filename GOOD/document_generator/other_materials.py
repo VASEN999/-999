@@ -42,29 +42,43 @@ class OtherMaterialsGenerator:
             other_materials.append("2. 近一年的个人所得税税单（从去年到今年相同月份）")
             other_materials.append("3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件")
         
-        # 检查主申请人或家庭成员中是否有退休人员，如果有且在北京领区，添加退休证明要求
-        has_retired_person = False
-        
         # 检查主申请人是否为退休人员
-        if residence_consulate == 'beijing' and identity_type == 'RETIRED':
-            has_retired_person = True
+        main_applicant_is_retired = False
+        if identity_type == 'RETIRED':
+            main_applicant_is_retired = True
         
         # 检查家属申请中是否有退休人员
-        if residence_consulate == 'beijing' and application_type == 'FAMILY':
+        family_has_retired = False
+        
+        if application_type == 'FAMILY':
             family_members = form_data.get('familyMembers', [])
-            for member in family_members:
+            for i, member in enumerate(family_members, 1):
                 if isinstance(member, dict) and member.get('identityType') == 'RETIRED':
-                    has_retired_person = True
+                    family_has_retired = True
                     break
         
-        # 如果有退休人员，添加退休证明的要求
-        if has_retired_person:
-            if other_materials[-1].startswith("1."):
-                other_materials.append("2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）")
-            else:
-                # 已经有其他编号的材料，继续往后编号
-                next_num = len(other_materials) + 1
+        # 根据领区和退休人员情况添加退休证明要求
+        if residence_consulate == 'shanghai':
+            # 上海领区：只有主申请人是退休人员时才需要提供退休证明
+            if main_applicant_is_retired:
+                if other_materials[-1].startswith("1."):
+                    next_num = 2
+                else:
+                    next_num = len(other_materials) + 1
+                other_materials.append(f"{next_num}. 退休人员需要提供退休证或能够证明退休的文件复印件（主申请人）")
+                logger.debug("上海领区：主申请人是退休人员，添加退休证明要求")
+            elif family_has_retired:
+                # 上海领区：家庭成员是退休人员时，不需要提供退休证明
+                logger.debug("上海领区：家庭成员中有退休人员，但不需要提供退休证明")
+        else:
+            # 北京领区：主申请人或家庭成员中有退休人员，都需要提供退休证明
+            if main_applicant_is_retired or family_has_retired:
+                if other_materials[-1].startswith("1."):
+                    next_num = 2
+                else:
+                    next_num = len(other_materials) + 1
                 other_materials.append(f"{next_num}. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）")
+                logger.debug("北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求")
         
         # 检查主申请人或家庭成员中是否有自由职业者，不管是哪个领区都添加说明
         has_freelancer = False

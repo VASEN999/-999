@@ -31,6 +31,7 @@ class BasicMaterialsGenerator:
         # 获取居住地领区信息
         residence_consulate = form_data.get('residenceConsulate', '').lower()
         application_type = form_data.get('applicationType')
+        identity_type = form_data.get('identityType', '')
         
         # 上海领区特有的基本材料
         if residence_consulate == 'shanghai':
@@ -38,9 +39,12 @@ class BasicMaterialsGenerator:
                 "护照原件+首页彩色复印件（剩余有效期大于7个月）",
                 "签证申请表（双面打印）",
                 "小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）",
-                "户口本复印件（家庭户：户首页+户主页+本人页）",
-                "在职证明（原件）"
+                "户口本复印件（家庭户：户首页+户主页+本人页）"
             ]
+            
+            # 根据身份类型添加特定材料
+            if identity_type == 'EMPLOYED':
+                basic_materials.append("在职证明（原件）")
             
             # 为上海领区的绑签申请添加额外材料
             if application_type == 'BINDING':
