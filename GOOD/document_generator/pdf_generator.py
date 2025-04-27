@@ -188,9 +188,18 @@ class PDFGenerator:
         # 生成申请人详细信息确认部分
         applicant_details = self._generate_applicant_details(form_data)
         
+        # 获取订单号，如果不存在则显示下划线供手写
+        order_number = ""
+        if form_data and form_data.get('orderNumber'):
+            order_number = form_data.get('orderNumber')
+        else:
+            # 显示下划线，供打印后手写填写
+            order_number = '<span style="display: inline-block; min-width: 200px; border-bottom: 1px solid #000;">&nbsp;</span>'
+        
         # 现在制作顶部信息部分（不再单独显示基本信息部分）
+        # 订单号单独一行，其他信息左右分布
         header_items = [
-            f'<div class="header-item"><strong>申请人姓名：</strong>{applicant_name}</div>',
+            f'<div class="order-number" style="flex: 1 0 100%; width: 100%; text-align: center; margin-bottom: 10px;"><strong>订单号：</strong>{order_number}</div>',
             f'<div class="header-item"><strong>签证类型：</strong>{visa_type}</div>',
             f'<div class="header-item"><strong>申请人身份：</strong>{identity_type}</div>',
             f'<div class="header-item"><strong>申请领区：</strong>{consulate}</div>',
@@ -369,6 +378,13 @@ class PDFGenerator:
         .text-warning {{
             color: #FFA500;
         }}
+        /* 订单号样式 */
+        .order-number {{
+            font-size: 18px;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }}
     </style>
 </head>
 <body>
@@ -509,24 +525,45 @@ class PDFGenerator:
             
             details.append('</table>')
             
-            # 添加申请详情部分
-            details.append('<div class="details-section" style="margin-top:25px;">')
-            details.append('<h3>申请详情</h3>')
+            # 添加申请详情部分，使用美观的左右布局
+            details.append('<div class="details-section" style="margin-top:25px; background-color:#f8f8f8; border-radius:8px; padding:15px;">')
+            details.append('<h3 style="margin-top:0; border-bottom:1px solid #e0e0e0; padding-bottom:8px; margin-bottom:15px;">申请详情</h3>')
+            
+            # 计算申请人数
+            applicant_count = 1 + len(family_members)
+            
+            # 使用表格布局确保左右对齐美观
+            details.append('<table style="width:100%; border-collapse:collapse;">')
+            details.append('<tr>')
+            
+            # 左侧栏
+            details.append('<td style="width:50%; padding-right:15px; vertical-align:top;">')
             
             # 申请类型
             application_text = self._get_application_type_display(application_type)
-            details.append(f'<p class="member-detail"><strong>申请类型: </strong>{application_text}</p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请类型: </strong>{application_text}</p>')
+            
+            # 申请人数
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请人数: </strong><span style="color:#2C73D2; font-weight:500;">{applicant_count}人</span></p>')
+            
+            details.append('</td>')  # 结束左侧栏
+            
+            # 右侧栏
+            details.append('<td style="width:50%; padding-left:15px; vertical-align:top; border-left:1px dashed #ddd;">')
             
             # 办理方式
             process_type = form_data.get('processType', '')
             process_text = self._get_process_type_display(process_type)
-            details.append(f'<p class="member-detail"><strong>办理方式: </strong>{process_text}</p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">办理方式: </strong>{process_text}</p>')
             
             # 签证类型
             visa_type = form_data.get('visaType', '')
             visa_text = self._get_visa_type_display(visa_type)
-            details.append(f'<p class="member-detail"><strong>签证类型: </strong><span class="highlight">{visa_text}</span></p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">签证类型: </strong><span style="color:#2C73D2; font-weight:500;">{visa_text}</span></p>')
             
+            details.append('</td>')  # 结束右侧栏
+            details.append('</tr>')  # 结束行
+            details.append('</table>')  # 结束表格
             details.append('</div>')  # 结束申请详情section
             
         else:
@@ -562,22 +599,43 @@ class PDFGenerator:
             
             # 右侧栏 - 申请详情
             details.append('</div><div class="column">')  # 结束左侧栏，开始右侧栏
-            details.append('<div class="details-section">')
-            details.append('<h3>申请详情</h3>')
+            
+            # 申请详情部分，美化样式
+            details.append('<div class="details-section" style="background-color:#f8f8f8; border-radius:8px; padding:15px;">')
+            details.append('<h3 style="margin-top:0; border-bottom:1px solid #e0e0e0; padding-bottom:8px; margin-bottom:15px;">申请详情</h3>')
+            
+            # 使用表格布局确保左右对齐美观
+            details.append('<table style="width:100%; border-collapse:collapse;">')
+            details.append('<tr>')
+            
+            # 左侧栏
+            details.append('<td style="width:50%; padding-right:15px; vertical-align:top;">')
             
             # 申请类型
             application_text = self._get_application_type_display(application_type)
-            details.append(f'<p class="member-detail"><strong>申请类型: </strong>{application_text}</p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请类型: </strong>{application_text}</p>')
+            
+            # 申请人数
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请人数: </strong><span style="color:#2C73D2; font-weight:500;">1人</span></p>')
+            
+            details.append('</td>')  # 结束左侧栏
+            
+            # 右侧栏
+            details.append('<td style="width:50%; padding-left:15px; vertical-align:top; border-left:1px dashed #ddd;">')
             
             # 办理方式
             process_type = form_data.get('processType', '')
             process_text = self._get_process_type_display(process_type)
-            details.append(f'<p class="member-detail"><strong>办理方式: </strong>{process_text}</p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">办理方式: </strong>{process_text}</p>')
             
             # 签证类型
             visa_type = form_data.get('visaType', '')
             visa_text = self._get_visa_type_display(visa_type)
-            details.append(f'<p class="member-detail"><strong>签证类型: </strong><span class="highlight">{visa_text}</span></p>')
+            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">签证类型: </strong><span style="color:#2C73D2; font-weight:500;">{visa_text}</span></p>')
+            
+            details.append('</td>')  # 结束右侧栏
+            details.append('</tr>')  # 结束行
+            details.append('</table>')  # 结束表格
             
             details.append('</div>')  # 结束申请详情section
             details.append('</div>')  # 结束右侧栏
@@ -596,9 +654,9 @@ class PDFGenerator:
     def _get_relation_display(self, relation):
         """获取与主申请人关系显示名称"""
         relations = {
-            'SPOUSE': '签证持有人的配偶',
-            'PARENT': '签证持有人的父母',
-            'CHILD': '签证持有人的子女',
+            'SPOUSE': '主申请人的配偶',
+            'PARENT': '主申请人的父母',
+            'CHILD': '主申请人的子女',
             'OTHER': '其他亲属'
         }
         return relations.get(relation, relation)

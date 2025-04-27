@@ -5093,3 +5093,1122 @@ UnboundLocalError: cannot access local variable 'HTML' where it is not associate
 2025-04-27 16:21:20,206 - app - INFO -   2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）
 2025-04-27 16:21:20,206 - app - INFO -   3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）
 2025-04-27 16:21:20,207 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:21:20] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:25:11,004 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:25:11,089 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:25:11,639 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:25:11,644 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:25:11,647 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:25:44,802 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:25:44,872 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:25:45,407 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:25:45,413 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:25:45,415 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:25:46,838 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:25:46] "GET / HTTP/1.1" 200 -
+2025-04-27 16:25:46,899 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:25:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-27 16:25:47,842 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:25:47] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-27 16:26:10,750 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "TAX"}
+2025-04-27 16:26:10,750 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-27 16:26:10,750 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:26:10,750 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:26:10,751 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:26:10,751 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:26:10,751 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-27 16:26:10,751 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-27 16:26:10,751 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:26:10,751 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员1需要提供学信网在线学籍验证报告'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-27 16:26:10,751 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:26:10,751 - app - INFO -   主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:10,751 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:10,751 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:10,751 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:10,752 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:26:10] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:26:12,264 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': '[{"relation":"SPOUSE","identityType":"STUDENT","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":1}]'}
+2025-04-27 16:26:12,264 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:26:12,264 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:26:12,264 - app - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:26:12,264 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': [{'relation': 'SPOUSE', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}]}
+2025-04-27 16:26:12,264 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:26:12,264 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:26:12,264 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:26:12,264 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-27 16:26:12,264 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-27 16:26:12,264 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:26:12,265 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员1需要提供学信网在线学籍验证报告'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-27 16:26:12,265 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员1需要提供学信网在线学籍验证报告'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-27 16:26:12,265 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:26:12,265 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:26:12,265 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:26:12,265 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:26:12,265 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:26:12,265 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:26:12,265 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:26:12,265 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:26:12,266 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:26:12,266 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:26:12,266 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:26:12,266 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:26:12,266 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:26:12,266 - app - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:12,266 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:12,266 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:12,267 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:12,267 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:26:12,267 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:26:12,267 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:26:12,267 - app - DEBUG -   - 3. 家庭成员1需要提供学信网在线学籍验证报告
+2025-04-27 16:26:12,267 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:26:12,267 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:26:12,267 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:26:12,268 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:26:12,269 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:26:12,269 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:26:12,269 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:26:12,269 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:26:12,269 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 3. 家庭成员1需要提供学信网在线学籍验证报告
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:26:12,270 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:26:12,271 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:26:12,271 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmp009fd6r9.html
+2025-04-27 16:26:12,271 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:26:12,351 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:26:12,351 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:26:12,627 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:26:12,627 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:26:12,627 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:26:12] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:26:37,441 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "BINDING", "visaType": "THREE", "processType": "NORMAL"}
+2025-04-27 16:26:37,441 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）']
+2025-04-27 16:26:37,441 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=BINDING
+2025-04-27 16:26:37,441 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:26:37,441 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:26:37,441 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:26:37,442 - app - INFO -   外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:37,442 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:37,442 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:37,442 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:37,442 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:26:37] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:26:38,920 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'BINDING', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyRelation': 'PARENT', 'familyVisaType': 'THREE'}
+2025-04-27 16:26:38,920 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'BINDING', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyRelation': 'PARENT', 'familyVisaType': 'THREE'}
+2025-04-27 16:26:38,920 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）']
+2025-04-27 16:26:38,920 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=BINDING
+2025-04-27 16:26:38,920 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:26:38,920 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:26:38,920 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:26:38,921 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:26:38,921 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:26:38,921 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:26:38,921 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:26:38,921 - app - DEBUG -   - 申请类型: 申请人是三年多次往返签证持有人的父母
+2025-04-27 16:26:38,921 - app - DEBUG -   - 家属签证类型: 三年多次往返签证
+2025-04-27 16:26:38,921 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:26:38,921 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:26:38,921 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:26:38,921 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:26:38,921 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:26:38,921 - app - DEBUG -   - 签证持有人的护照首页复印件 + 签证页复印件
+2025-04-27 16:26:38,923 - app - DEBUG -   - 与签证持有人的关系证明材料（子女出生证明/户口本）
+2025-04-27 16:26:38,923 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:26:38,923 - app - DEBUG -   - 签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）
+2025-04-27 16:26:38,923 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:26:38,923 - app - DEBUG -   - 外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:38,923 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:38,923 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:38,923 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:38,923 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:26:38,923 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:26:38,924 - app - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:26:38,924 - app - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 申请类型: 申请人是三年多次往返签证持有人的父母
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 家属签证类型: 三年多次往返签证
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:26:38,924 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG -   - 签证持有人的护照首页复印件 + 签证页复印件
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG -   - 与签证持有人的关系证明材料（子女出生证明/户口本）
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG -   - 签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）
+2025-04-27 16:26:38,925 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:26:38,926 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:26:38,927 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpwhn9rpv6.html
+2025-04-27 16:26:38,927 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:26:38,950 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:26:38,951 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:26:39,172 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:26:39,172 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:26:39,173 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:26:39] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:27:10,128 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'BINDING', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyRelation': 'PARENT', 'familyVisaType': 'THREE'}
+2025-04-27 16:27:10,128 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'BINDING', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyRelation': 'PARENT', 'familyVisaType': 'THREE'}
+2025-04-27 16:27:10,128 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）']
+2025-04-27 16:27:10,128 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=BINDING
+2025-04-27 16:27:10,128 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:27:10,128 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:27:10,129 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:27:10,129 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:27:10,129 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:27:10,129 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:27:10,129 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:27:10,129 - app - DEBUG -   - 申请类型: 申请人是三年多次往返签证持有人的父母
+2025-04-27 16:27:10,129 - app - DEBUG -   - 家属签证类型: 三年多次往返签证
+2025-04-27 16:27:10,129 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:27:10,129 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:27:10,129 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:27:10,129 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:27:10,129 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:27:10,129 - app - DEBUG -   - 签证持有人的护照首页复印件 + 签证页复印件
+2025-04-27 16:27:10,129 - app - DEBUG -   - 与签证持有人的关系证明材料（子女出生证明/户口本）
+2025-04-27 16:27:10,129 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:27:10,129 - app - DEBUG -   - 签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）
+2025-04-27 16:27:10,130 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:27:10,130 - app - DEBUG -   - 外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:27:10,130 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:27:10,130 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:27:10,130 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:27:10,130 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:27:10,130 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:27:10,130 - app - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:27:10,130 - app - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:27:10,130 - document_generator.pdf_generator - DEBUG -   - 申请类型: 申请人是三年多次往返签证持有人的父母
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 家属签证类型: 三年多次往返签证
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 签证持有人的护照首页复印件 + 签证页复印件
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 与签证持有人的关系证明材料（子女出生证明/户口本）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:27:10,131 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpid47_lzy.html
+2025-04-27 16:27:10,132 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:27:10,155 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:27:10,155 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:27:10,377 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:27:10,377 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:27:10,377 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:27:10] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:31:55,063 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:31:55,155 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:31:55,690 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:31:55,695 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:31:55,698 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:34:13,296 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:34:13,416 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:34:13,963 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:34:13,968 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:34:13,970 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:34:22,716 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:34:22] "GET / HTTP/1.1" 200 -
+2025-04-27 16:34:22,769 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:34:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-27 16:34:23,541 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:34:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-27 16:34:41,267 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "TAX"}
+2025-04-27 16:34:41,268 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-27 16:34:41,268 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:34:41,268 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:34:41,268 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:34:41,268 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:34:41,268 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-27 16:34:41,268 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-27 16:34:41,268 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:34:41,268 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-27 16:34:41,268 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-27 16:34:41,269 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:34:41,269 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:34:41,269 - app - INFO -   主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:34:41,269 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:34:41,269 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:34:41,269 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:34:41,269 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:34:41] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:34:43,358 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': '[{"relation":"PARENT","identityType":"FREELANCE","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":1}]'}
+2025-04-27 16:34:43,358 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:34:43,358 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:34:43,358 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:34:43,358 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}]}
+2025-04-27 16:34:43,358 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:34:43,359 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:34:43,359 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:34:43,359 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-27 16:34:43,359 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-27 16:34:43,359 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:34:43,359 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-27 16:34:43,359 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-27 16:34:43,359 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:34:43,359 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:34:43,359 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:34:43,360 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:34:43,360 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:34:43,360 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:34:43,360 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:34:43,360 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:34:43,360 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:34:43,360 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:34:43,360 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:34:43,361 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:34:43,361 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:34:43,361 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:34:43,361 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:34:43,361 - app - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:34:43,361 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:34:43,361 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:34:43,361 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:34:43,361 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:34:43,362 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:34:43,362 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:34:43,362 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:34:43,362 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:34:43,362 - app - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:34:43,362 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:34:43,362 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:34:43,363 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:34:43,364 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:34:43,365 - document_generator.pdf_generator - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:34:43,365 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:34:43,365 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:34:43,365 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpsyc7ox22.html
+2025-04-27 16:34:43,365 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:34:43,448 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:34:43,448 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:34:43,721 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:34:43,722 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:34:43,722 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:34:43] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:39:43,388 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:39:43,471 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:39:44,019 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:39:44,025 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:39:44,027 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:40:04,123 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:40:04,194 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:40:04,759 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:40:04,767 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:40:04,770 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:40:07,449 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': '[{"relation":"PARENT","identityType":"FREELANCE","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":1}]'}
+2025-04-27 16:40:07,449 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:40:07,449 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:40:07,449 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:40:07,449 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}]}
+2025-04-27 16:40:07,449 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:40:07,449 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:40:07,449 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:40:07,450 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-27 16:40:07,450 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-27 16:40:07,450 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:40:07,450 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-27 16:40:07,450 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-27 16:40:07,450 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:40:07,450 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:40:07,450 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:40:07,451 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:40:07,451 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:40:07,451 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:40:07,451 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:40:07,451 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:40:07,451 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:40:07,451 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:40:07,452 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:40:07,452 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:40:07,452 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:40:07,452 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:40:07,452 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:40:07,452 - app - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:40:07,452 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:40:07,452 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:40:07,452 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:40:07,452 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:40:07,452 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:40:07,453 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:40:07,453 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:40:07,453 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:40:07,453 - app - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:40:07,453 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:40:07,454 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:40:07,455 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:40:07,456 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:40:07,457 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpygjp0ywz.html
+2025-04-27 16:40:07,457 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:40:07,537 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:40:07,538 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:40:07,820 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:40:07,820 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:40:07,821 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:40:07] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:43:55,570 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:43:55] "GET / HTTP/1.1" 200 -
+2025-04-27 16:43:55,621 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:43:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-27 16:43:56,030 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:43:56] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-27 16:44:09,663 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "TAX"}
+2025-04-27 16:44:09,663 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-27 16:44:09,663 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=beijing
+2025-04-27 16:44:09,663 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:44:09,663 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:44:09,663 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:44:09,664 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:44:09,664 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:44:09,664 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-27 16:44:09,664 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-27 16:44:09,664 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:44:09,664 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:44:09,664 - app - INFO -   主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:44:09,664 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:44:09,664 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:44:09,664 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:44:09,665 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:44:09] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:44:22,692 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': '[{"relation":"PARENT","identityType":"FREELANCE","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1}]'}
+2025-04-27 16:44:22,692 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:44:22,692 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:44:22,692 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:44:22,693 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}]}
+2025-04-27 16:44:22,693 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:44:22,693 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:44:22,693 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:44:22,693 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:44:22,693 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:44:22,693 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-27 16:44:22,693 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-27 16:44:22,693 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:44:22,694 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-27 16:44:22,694 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:44:22,694 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:44:22,694 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:44:22,694 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:44:22,694 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:44:22,694 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:44:22,695 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:44:22,695 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:44:22,695 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:44:22,695 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:44:22,695 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:44:22,695 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:44:22,695 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:44:22,695 - app - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:44:22,695 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:44:22,695 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:44:22,695 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:44:22,695 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:44:22,696 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:44:22,696 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:44:22,696 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:44:22,696 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:44:22,696 - app - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:44:22,696 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:44:22,696 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:44:22,696 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:44:22,696 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'FREELANCE', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:44:22,696 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:44:22,697 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG -   - 2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:44:22,698 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:44:22,699 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpb6ss81vb.html
+2025-04-27 16:44:22,699 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:44:22,727 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:44:22,727 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:44:22,946 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:44:22,946 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:44:22,946 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:44:22] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:45:05,866 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "other", "applicationType": "FAMILY", "visaType": "THREE", "processType": "TAX"}
+2025-04-27 16:45:05,866 - app - INFO - 家庭申请，家庭成员数量: 4
+2025-04-27 16:45:05,866 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=beijing
+2025-04-27 16:45:05,866 - app - INFO - 家庭成员2: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:45:05,866 - app - INFO - 家庭成员3: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:45:05,866 - app - INFO - 家庭成员4: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:45:05,866 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:45:05,867 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=other, type=FAMILY
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
+2025-04-27 16:45:05,867 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员3, residence=beijing, hukou=shanghai
+2025-04-27 16:45:05,867 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员3
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员4, residence=beijing, hukou=shanghai
+2025-04-27 16:45:05,867 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员4
+2025-04-27 16:45:05,867 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:45:05,867 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是退休人员(RETIRED)，材料将在其他材料部分显示
+2025-04-27 16:45:05,867 - document_generator.other_materials - DEBUG - 北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求
+2025-04-27 16:45:05,867 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 其他', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:45:05,867 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:45:05,868 - app - INFO -   主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:45:05,868 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:45:05,868 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:45:05,868 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:45:05,868 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:45:05] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:45:09,583 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'other', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': '[{"relation":"PARENT","identityType":"RETIRED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1},{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":2},{"relation":"CHILD","identityType":"STUDENT","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":3},{"relation":"CHILD","identityType":"CHILD","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":4}]'}
+2025-04-27 16:45:09,583 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:45:09,583 - app - DEBUG - 家庭成员数量: 4
+2025-04-27 16:45:09,583 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:45:09,584 - app - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:45:09,584 - app - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:45:09,584 - app - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:45:09,584 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'other', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}, {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}, {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}, {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}]}
+2025-04-27 16:45:09,584 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:45:09,584 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:45:09,584 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=other, type=FAMILY
+2025-04-27 16:45:09,584 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:45:09,584 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
+2025-04-27 16:45:09,584 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
+2025-04-27 16:45:09,584 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员3, residence=beijing, hukou=shanghai
+2025-04-27 16:45:09,584 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员3
+2025-04-27 16:45:09,584 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员4, residence=beijing, hukou=shanghai
+2025-04-27 16:45:09,585 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员4
+2025-04-27 16:45:09,585 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:45:09,585 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是退休人员(RETIRED)，材料将在其他材料部分显示
+2025-04-27 16:45:09,585 - document_generator.other_materials - DEBUG - 北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求
+2025-04-27 16:45:09,585 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 其他', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:45:09,585 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 其他', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:45:09,585 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:45:09,585 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:45:09,585 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:45:09,585 - app - DEBUG -   - 户籍所在地领区: 其他
+2025-04-27 16:45:09,585 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:45:09,586 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:45:09,586 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:45:09,586 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:45:09,586 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:45:09,586 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:45:09,586 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:45:09,586 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:45:09,586 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:45:09,587 - app - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:45:09,587 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:45:09,587 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:45:09,587 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:45:09,587 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:45:09,587 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:45:09,587 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:45:09,587 - app - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:45:09,588 - app - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:45:09,588 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:45:09,588 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:45:09,588 - app - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:45:09,588 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:45:09,588 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 4
+2025-04-27 16:45:09,588 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:45:09,588 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:45:09,589 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 其他
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:45:09,590 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:45:09,591 - document_generator.pdf_generator - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 4 个家庭成员
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpzfh9cup1.html
+2025-04-27 16:45:09,592 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:45:09,618 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:45:09,619 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:45:09,899 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:45:09,899 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:45:09,899 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:45:09] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:48:06,678 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "TAX"}
+2025-04-27 16:48:06,678 - app - INFO - 家庭申请，家庭成员数量: 4
+2025-04-27 16:48:06,678 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=beijing
+2025-04-27 16:48:06,678 - app - INFO - 家庭成员2: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:48:06,678 - app - INFO - 家庭成员3: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:48:06,678 - app - INFO - 家庭成员4: 居住地=beijing, 户籍地=shanghai
+2025-04-27 16:48:06,678 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:48:06,678 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:48:06,678 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:48:06,679 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:48:06,679 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
+2025-04-27 16:48:06,679 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
+2025-04-27 16:48:06,679 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员3, residence=beijing, hukou=shanghai
+2025-04-27 16:48:06,679 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员3
+2025-04-27 16:48:06,679 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员4, residence=beijing, hukou=shanghai
+2025-04-27 16:48:06,679 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员4
+2025-04-27 16:48:06,679 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:48:06,679 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是退休人员(RETIRED)，材料将在其他材料部分显示
+2025-04-27 16:48:06,679 - document_generator.other_materials - DEBUG - 北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求
+2025-04-27 16:48:06,679 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:48:06,680 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:48:06,680 - app - INFO -   主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:48:06,680 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:48:06,680 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:48:06,680 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:48:06,680 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:48:06] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:48:08,254 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': '[{"relation":"PARENT","identityType":"RETIRED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1},{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":2},{"relation":"CHILD","identityType":"STUDENT","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":3},{"relation":"CHILD","identityType":"CHILD","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":4}]'}
+2025-04-27 16:48:08,254 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:48:08,254 - app - DEBUG - 家庭成员数量: 4
+2025-04-27 16:48:08,254 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:48:08,254 - app - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:48:08,254 - app - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:48:08,254 - app - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:48:08,254 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}, {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}, {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}, {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}]}
+2025-04-27 16:48:08,254 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:48:08,254 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:48:08,254 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:48:08,255 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:48:08,255 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
+2025-04-27 16:48:08,255 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
+2025-04-27 16:48:08,255 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员3, residence=beijing, hukou=shanghai
+2025-04-27 16:48:08,255 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员3
+2025-04-27 16:48:08,255 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员4, residence=beijing, hukou=shanghai
+2025-04-27 16:48:08,255 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员4
+2025-04-27 16:48:08,255 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:48:08,255 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是退休人员(RETIRED)，材料将在其他材料部分显示
+2025-04-27 16:48:08,255 - document_generator.other_materials - DEBUG - 北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求
+2025-04-27 16:48:08,255 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:48:08,255 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:48:08,255 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:48:08,255 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:48:08,256 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:48:08,256 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:48:08,256 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:48:08,256 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:48:08,256 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:48:08,256 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:48:08,256 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:48:08,256 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:48:08,256 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:48:08,256 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:48:08,256 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:48:08,256 - app - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:48:08,256 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:48:08,256 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:48:08,256 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:48:08,256 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:48:08,257 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:48:08,257 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:48:08,257 - app - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:48:08,257 - app - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:48:08,257 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:48:08,257 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:48:08,257 - app - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 4
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:48:08,257 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:48:08,258 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 4 个家庭成员
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmpsseolezr.html
+2025-04-27 16:48:08,259 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:48:08,289 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:48:08,290 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:48:08,570 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:48:08,571 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:48:08,571 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:48:08] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:48:26,752 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': '[{"relation":"PARENT","identityType":"RETIRED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1},{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":2},{"relation":"CHILD","identityType":"STUDENT","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":3},{"relation":"CHILD","identityType":"CHILD","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":4}]'}
+2025-04-27 16:48:26,752 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:48:26,752 - app - DEBUG - 家庭成员数量: 4
+2025-04-27 16:48:26,752 - app - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:48:26,752 - app - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:48:26,752 - app - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:48:26,752 - app - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:48:26,752 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '2533709784496095861', 'familyMembers': [{'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}, {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}, {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}, {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}]}
+2025-04-27 16:48:26,752 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:48:26,753 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于2.8万的税单（北京领区）']
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员2, residence=beijing, hukou=shanghai
+2025-04-27 16:48:26,753 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员2
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员3, residence=beijing, hukou=shanghai
+2025-04-27 16:48:26,753 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员3
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员4, residence=beijing, hukou=shanghai
+2025-04-27 16:48:26,753 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员4
+2025-04-27 16:48:26,753 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:48:26,753 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是退休人员(RETIRED)，材料将在其他材料部分显示
+2025-04-27 16:48:26,754 - document_generator.other_materials - DEBUG - 北京领区：有退休人员（主申请人或家庭成员），添加退休证明要求
+2025-04-27 16:48:26,754 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:48:26,754 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于2.8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明', '3. 家庭成员3需要提供学信网在线学籍验证报告', '4. 家庭成员4需要由监护人陪同并提供监护关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）']})
+2025-04-27 16:48:26,754 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:48:26,754 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:48:26,755 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:48:26,755 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:48:26,755 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:48:26,755 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:48:26,755 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:48:26,755 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:48:26,756 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:48:26,756 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:48:26,756 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:48:26,756 - app - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:48:26,756 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:48:26,756 - app - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:48:26,757 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:48:26,757 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:48:26,757 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:48:26,757 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:48:26,758 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:48:26,758 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:48:26,758 - app - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:48:26,758 - app - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:48:26,758 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:48:26,758 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:48:26,758 - app - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 4
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'PARENT', 'identityType': 'RETIRED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭成员 2: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 2}
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭成员 3: {'relation': 'CHILD', 'identityType': 'STUDENT', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 3}
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 家庭成员 4: {'relation': 'CHILD', 'identityType': 'CHILD', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 4}
+2025-04-27 16:48:26,758 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于2.8万的税单（北京领区）
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员2, 家庭成员3, 家庭成员4需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:48:26,759 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG -   - 3. 家庭成员3需要提供学信网在线学籍验证报告
+2025-04-27 16:48:26,760 - document_generator.pdf_generator - DEBUG -   - 4. 家庭成员4需要由监护人陪同并提供监护关系证明
+2025-04-27 16:48:26,761 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:48:26,761 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:48:26,761 - document_generator.pdf_generator - DEBUG -   - 2. 退休人员需要提供退休证或能够证明退休的文件复印件（包括家庭成员的申请）
+2025-04-27 16:48:26,761 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:48:26,761 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 4 个家庭成员
+2025-04-27 16:48:26,762 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmplbbup26l.html
+2025-04-27 16:48:26,762 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:48:26,790 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:48:26,791 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:48:27,125 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:48:27,125 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:48:27,126 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:48:27] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:51:33,750 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:51:33,830 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:51:34,382 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:51:34,388 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:51:34,390 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:52:21,597 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:52:21,670 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:52:22,209 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:52:22,215 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:52:22,217 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:52:28,001 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:52:28] "GET / HTTP/1.1" 200 -
+2025-04-27 16:52:28,076 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:52:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-27 16:52:28,863 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:52:28] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-27 16:52:47,875 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "NORMAL"}
+2025-04-27 16:52:47,875 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-27 16:52:47,875 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=beijing
+2025-04-27 16:52:47,876 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:52:47,876 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）']
+2025-04-27 16:52:47,876 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:52:47,876 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:52:47,876 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:52:47,876 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:52:47,876 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:52:47,876 - app - INFO -   主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:52:47,876 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:52:47,877 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:52:47,877 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:52:47,877 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:52:47] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:52:56,294 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': '[{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1}]'}
+2025-04-27 16:52:56,294 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:52:56,294 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:52:56,294 - app - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:52:56,294 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': [{'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}]}
+2025-04-27 16:52:56,294 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:52:56,294 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单']
+2025-04-27 16:52:56,294 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:52:56,294 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:52:56,294 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:52:56,294 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:52:56,295 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:52:56,295 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:52:56,295 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:52:56,295 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:52:56,295 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:52:56,295 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:52:56,295 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:52:56,295 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:52:56,295 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:52:56,295 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:52:56,295 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:52:56,295 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:52:56,295 - app - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:52:56,295 - app - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:52:56,296 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:52:56,296 - app - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:52:56,296 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:52:56,296 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:52:56,296 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:52:56,296 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:52:56,296 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:52:56,296 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:52:56,296 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:52:56,296 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:52:56,296 - app - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:52:56,296 - app - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:52:56,296 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:52:56,296 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:52:56,297 - document_generator.pdf_generator - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:52:56,298 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:52:56,299 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmp4u_4_rnx.html
+2025-04-27 16:52:56,299 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:52:56,376 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:52:56,376 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:52:56,682 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:52:56,683 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:52:56,683 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:52:56] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:53:58,017 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "THREE", "processType": "NORMAL"}
+2025-04-27 16:53:58,017 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-27 16:53:58,017 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=beijing
+2025-04-27 16:53:58,017 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:53:58,017 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）']
+2025-04-27 16:53:58,017 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:53:58,017 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:53:58,018 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:53:58,018 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:53:58,018 - app - INFO - 生成的居住证明材料:
+2025-04-27 16:53:58,018 - app - INFO -   主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:53:58,018 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:53:58,018 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:53:58,018 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-27 16:53:58,018 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:53:58] "POST /api/generate HTTP/1.1" 200 -
+2025-04-27 16:54:02,448 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': '[{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1}]'}
+2025-04-27 16:54:02,448 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:54:02,448 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:54:02,449 - app - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:54:02,449 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': [{'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}]}
+2025-04-27 16:54:02,449 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:54:02,449 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单']
+2025-04-27 16:54:02,449 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:54:02,449 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:54:02,449 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:54:02,449 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:54:02,449 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:54:02,449 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:54:02,449 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:54:02,450 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:54:02,450 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:54:02,450 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:54:02,450 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:54:02,450 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:54:02,450 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:54:02,450 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:54:02,450 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:54:02,450 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:54:02,450 - app - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:54:02,450 - app - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:54:02,450 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:54:02,450 - app - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:54:02,451 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:54:02,451 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:54:02,451 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:54:02,451 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:54:02,451 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:54:02,451 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:54:02,451 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:54:02,452 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:54:02,452 - app - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:54:02,452 - app - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:54:02,452 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:54:02,453 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:54:02,454 - document_generator.pdf_generator - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:54:02,455 - document_generator.pdf_generator - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:54:02,455 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:54:02,455 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:54:02,455 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmp9nqkbjck.html
+2025-04-27 16:54:02,455 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:54:02,480 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:54:02,480 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:54:02,730 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:54:02,731 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:54:02,731 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:54:02] "POST /api/generate_pdf HTTP/1.1" 200 -
+2025-04-27 16:58:40,884 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:58:40,967 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:58:41,498 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:58:41,503 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:58:41,506 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:59:02,614 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/document_generator/pdf_generator.py', reloading
+2025-04-27 16:59:02,686 - werkzeug - INFO -  * Restarting with stat
+2025-04-27 16:59:03,214 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-27 16:59:03,220 - werkzeug - WARNING -  * Debugger is active!
+2025-04-27 16:59:03,222 - werkzeug - INFO -  * Debugger PIN: 413-907-019
+2025-04-27 16:59:08,448 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': '[{"relation":"SPOUSE","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"beijing","number":1}]'}
+2025-04-27 16:59:08,449 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-27 16:59:08,449 - app - DEBUG - 家庭成员数量: 1
+2025-04-27 16:59:08,449 - app - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:59:08,449 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'NORMAL', 'visaType': 'THREE', 'previousVisit': 'true', 'applicantName': '申请人', 'orderNumber': '4262312916936075625', 'familyMembers': [{'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}]}
+2025-04-27 16:59:08,449 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-27 16:59:08,449 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单']
+2025-04-27 16:59:08,449 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-27 16:59:08,449 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=beijing
+2025-04-27 16:59:08,449 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-27 16:59:08,450 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:59:08,450 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 三年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）', '税单要求：金额大于3万的税单'], '居住证明材料': ['主申请人需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 近一年的个人所得税税单（从去年到今年相同月份）', '3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件']})
+2025-04-27 16:59:08,450 - app - DEBUG - 详细材料清单内容:
+2025-04-27 16:59:08,450 - app - DEBUG - 部分: 基本信息
+2025-04-27 16:59:08,450 - app - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:59:08,450 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:59:08,450 - app - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:59:08,450 - app - DEBUG - 部分: 基本材料
+2025-04-27 16:59:08,450 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:59:08,450 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:59:08,451 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:59:08,451 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:59:08,451 - app - DEBUG - 部分: 财力证明
+2025-04-27 16:59:08,451 - app - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:59:08,451 - app - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:59:08,451 - app - DEBUG - 部分: 居住证明材料
+2025-04-27 16:59:08,451 - app - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:59:08,452 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:59:08,452 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:59:08,452 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:59:08,452 - app - DEBUG - 部分: 家属材料
+2025-04-27 16:59:08,452 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:59:08,452 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:59:08,452 - app - DEBUG - 部分: 其他材料
+2025-04-27 16:59:08,452 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:59:08,453 - app - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:59:08,453 - app - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:59:08,453 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=申请人, 签证类型=三年多次签证, 身份=在职人员, 领区=北京
+2025-04-27 16:59:08,453 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-27 16:59:08,453 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-27 16:59:08,453 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'SPOUSE', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'beijing', 'number': 1}
+2025-04-27 16:59:08,453 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 申请类型: 三年多次往返签证
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-27 16:59:08,454 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 存款/理财证明：确认申请人本人持有50万以上的可验证存款/理财证明（招商银行、建设银行、工商银行等银行可出具）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 税单要求：金额大于3万的税单
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 主申请人需要提供以下居住证明材料（选择一种即可）：
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 2. 近一年的个人所得税税单（从去年到今年相同月份）
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG -   - 3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件
+2025-04-27 16:59:08,455 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-27 16:59:08,456 - document_generator.pdf_generator - DEBUG - 家庭申请布局: 找到 1 个家庭成员
+2025-04-27 16:59:08,456 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmplmfwl89q.html
+2025-04-27 16:59:08,456 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-27 16:59:08,536 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-27 16:59:08,537 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-27 16:59:08,863 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-27 16:59:08,864 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250427.pdf
+2025-04-27 16:59:08,864 - werkzeug - INFO - 221.216.116.214 - - [27/Apr/2025 16:59:08] "POST /api/generate_pdf HTTP/1.1" 200 -
