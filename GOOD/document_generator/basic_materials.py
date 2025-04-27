@@ -87,5 +87,20 @@ class BasicMaterialsGenerator:
                     basic_materials[i] = f"{item}（{hukou_details}）"
                     break
         
+        # 为北京领区的绑签申请添加额外材料
+        if application_type == 'BINDING':
+            basic_materials.append("签证持有人的护照首页复印件 + 签证页复印件")
+            
+            # 根据关系类型添加不同的关系证明材料
+            family_relation = form_data.get('familyRelation', '')
+            if family_relation == 'SPOUSE':
+                basic_materials.append("与签证持有人的关系证明材料（结婚证/户口本）")
+            elif family_relation == 'PARENT':
+                basic_materials.append("与签证持有人的关系证明材料（子女出生证明/户口本）")
+            elif family_relation == 'CHILD':
+                basic_materials.append("与签证持有人的关系证明材料（出生证明/户口本）")
+            else:
+                basic_materials.append("与签证持有人的关系证明材料（结婚证/户口本/出生证明等）")
+        
         logger.debug("生成基本材料: %s", basic_materials)
         return basic_materials 

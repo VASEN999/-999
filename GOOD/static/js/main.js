@@ -1234,7 +1234,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (selectedIdentityType) {
             // 获取申请类型选项
+            const singleApplicationRadio = document.getElementById('typeSingle');
             const familyApplicationRadio = document.getElementById('typeFamily');
+            const bindingApplicationRadio = document.getElementById('typeBinding');
+            const economicApplicationRadio = document.getElementById('typeEconomic');
             const taxProcessRadio = document.getElementById('processTax');
             const studentProcessRadio = document.getElementById('processStudent');
             
@@ -1242,6 +1245,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const isStudentOrChild = (selectedIdentityType.value === 'STUDENT' || selectedIdentityType.value === 'CHILD');
             // 检查身份类型是否为退休人员或学龄前儿童
             const isRetiredOrChild = (selectedIdentityType.value === 'RETIRED' || selectedIdentityType.value === 'CHILD');
+            // 检查是否仅为学龄前儿童
+            const isOnlyChild = (selectedIdentityType.value === 'CHILD');
             
             // 针对在校学生和学龄前儿童的限制
             if (isStudentOrChild) {
@@ -1292,6 +1297,58 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (taxProcessRadio) {
                     taxProcessRadio.disabled = false;
+                }
+            }
+            
+            // 学龄前儿童特殊限制：禁用单人申请选项
+            if (isOnlyChild) {
+                if (singleApplicationRadio) {
+                    singleApplicationRadio.disabled = true;
+                    
+                    // 如果当前选择了单人申请，切换到作为签证持有人的家属办理
+                    if (singleApplicationRadio.checked && bindingApplicationRadio) {
+                        bindingApplicationRadio.checked = true;
+                        // 触发change事件以更新相关UI
+                        bindingApplicationRadio.dispatchEvent(new Event('change'));
+                    }
+                    
+                    // 添加视觉反馈
+                    const singleLabel = document.querySelector(`label[for="${singleApplicationRadio.id}"]`);
+                    if (singleLabel) {
+                        singleLabel.classList.add('disabled');
+                        singleLabel.title = '学龄前儿童不能选择单人申请';
+                    }
+                }
+                
+                // 确保作为签证持有人的家属办理和使用家庭成员的经济材料可用
+                if (bindingApplicationRadio) {
+                    bindingApplicationRadio.disabled = false;
+                    const bindingLabel = document.querySelector(`label[for="${bindingApplicationRadio.id}"]`);
+                    if (bindingLabel) {
+                        bindingLabel.classList.remove('disabled');
+                        bindingLabel.title = '';
+                    }
+                }
+                
+                if (economicApplicationRadio) {
+                    economicApplicationRadio.disabled = false;
+                    const economicLabel = document.querySelector(`label[for="${economicApplicationRadio.id}"]`);
+                    if (economicLabel) {
+                        economicLabel.classList.remove('disabled');
+                        economicLabel.title = '';
+                    }
+                }
+            } else {
+                // 非学龄前儿童，启用单人申请选项
+                if (singleApplicationRadio) {
+                    singleApplicationRadio.disabled = false;
+                    
+                    // 移除视觉反馈
+                    const singleLabel = document.querySelector(`label[for="${singleApplicationRadio.id}"]`);
+                    if (singleLabel) {
+                        singleLabel.classList.remove('disabled');
+                        singleLabel.title = '';
+                    }
                 }
             }
             
