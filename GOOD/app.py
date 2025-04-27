@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, jsonify, make_response
 import os
 import json
 import logging
+import datetime
 from collections import OrderedDict
 from document_generator import DocumentGenerator
 from risk_assessment import RiskAssessmentService
+from document_generator.pdf_generator import PDFGenerator
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -37,6 +40,7 @@ def load_config():
 document_config = load_config()
 document_generator = DocumentGenerator(document_config)
 risk_service = RiskAssessmentService(document_config)
+pdf_generator = PDFGenerator(document_config)  # 初始化PDF生成器
 
 # 定义材料显示顺序
 section_order = ['基本信息', '基本材料', '学籍/学历证明', '学籍/学历证明及情况说明', '工作证明', '财力证明', '居住证明材料', '家属材料', '其他材料']
@@ -111,6 +115,91 @@ def risk_assessment_guide():
         return jsonify({
             'status': 'error',
             'error': f'服务器错误: {str(e)}'
+        }), 500
+
+@app.route('/api/generate_pdf', methods=['POST'])
+def generate_pdf():
+    """生成PDF材料清单"""
+    try:
+        form_data = request.json if request.is_json else request.form.to_dict()
+        logger.debug("收到PDF生成请求，原始表单数据: %s", str(form_data))
+        
+        if not form_data:
+            logger.warning("没有提交表单数据")
+            return jsonify({
+                "error": "没有提交表单数据"
+            }), 400
+        
+        # 处理从表单传来的JSON字符串数据
+        for key in form_data:
+            if isinstance(form_data[key], str):
+                try:
+                    # 尝试解析可能的JSON字符串
+                    if form_data[key].startswith('[') or form_data[key].startswith('{'):
+                        form_data[key] = json.loads(form_data[key])
+                except json.JSONDecodeError:
+                    # 如果不是有效的JSON，保持原样
+                    pass
+        
+        logger.debug("处理后的表单数据: %s", str(form_data))
+            
+        # 检查居住地领区
+        residence_consulate = form_data.get('residenceConsulate', '')
+        if residence_consulate == 'other':
+            logger.warning("用户选择了其他领区")
+            return jsonify({
+                "error": "目前暂不支持在其他领区申请日本签证，请选择北京或上海领区。"
+            }), 400
+        
+        try:
+            # 生成材料清单
+            document_list = document_generator.generate_document_list(form_data)
+            
+            # 记录生成的材料清单，便于调试
+            logger.debug("为PDF生成的材料清单: %s", document_list)
+            # 详细记录生成的材料清单内容
+            logger.debug("详细材料清单内容:")
+            for section_name, materials in document_list.items():
+                logger.debug("部分: %s", section_name)
+                for item in materials:
+                    logger.debug("  - %s", item)
+        except Exception as e:
+            logger.error("生成材料清单时出错: %s", str(e), exc_info=True)
+            return jsonify({
+                "error": f"生成材料清单时出错: {str(e)}"
+            }), 500
+        
+        try:
+            # 生成PDF
+            pdf_content = pdf_generator.generate_pdf(document_list, form_data)
+            
+            # 生成文件名
+            current_date = datetime.datetime.now().strftime('%Y%m%d')
+            
+            # 修复文件名编码问题 - 使用URL编码处理中文字符
+            filename = f"visa_document_list_{current_date}.pdf"
+            encoded_filename = urllib.parse.quote(f"日本签证材料清单_{current_date}.pdf")
+            
+            # 返回PDF文件
+            response = make_response(pdf_content)
+            response.headers['Content-Type'] = 'application/pdf'
+            # 使用不同的Content-Disposition格式支持多种浏览器
+            response.headers['Content-Disposition'] = f'inline; filename="{filename}"; filename*=UTF-8\'\'{encoded_filename}'
+            response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+            response.headers['Pragma'] = 'no-cache'
+            response.headers['Expires'] = '0'
+            logger.debug("PDF生成成功，文件名: %s", filename)
+            return response
+        except Exception as e:
+            logger.error("生成PDF文件时出错: %s", str(e), exc_info=True)
+            return jsonify({
+                "error": f"生成PDF文件时出错: {str(e)}"
+            }), 500
+        
+    except Exception as e:
+        app.logger.error("PDF生成过程中发生未知错误: %s", str(e), exc_info=True)
+        return jsonify({
+            "error": f"PDF生成过程中发生未知错误: {str(e)}"
         }), 500
 
 if __name__ == '__main__':
