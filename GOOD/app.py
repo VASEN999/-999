@@ -141,6 +141,25 @@ def generate_pdf():
                     # 如果不是有效的JSON，保持原样
                     pass
         
+        # 特殊处理家庭成员信息
+        if form_data.get('applicationType') == 'FAMILY':
+            family_members = form_data.get('familyMembers', [])
+            logger.debug(f"处理家庭申请: 家庭成员数据类型 {type(family_members)}")
+            
+            # 如果家庭成员是字符串，尝试解析
+            if isinstance(family_members, str):
+                try:
+                    family_members = json.loads(family_members)
+                    form_data['familyMembers'] = family_members
+                    logger.debug(f"成功解析家庭成员字符串: {family_members}")
+                except json.JSONDecodeError:
+                    logger.error(f"无法解析家庭成员字符串: {family_members}")
+            
+            # 记录家庭成员数量和信息
+            logger.debug(f"家庭成员数量: {len(family_members)}")
+            for i, member in enumerate(family_members):
+                logger.debug(f"家庭成员 {i+1}: {member}")
+        
         logger.debug("处理后的表单数据: %s", str(form_data))
             
         # 检查居住地领区

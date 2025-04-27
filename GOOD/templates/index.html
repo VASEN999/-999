@@ -1037,6 +1037,37 @@
                             // 我们找到了正在显示的材料清单，说明已经有生成过的数据
                         }
                         
+                        // 如果是家庭申请，收集家庭成员数据
+                        if (pdfFormData.applicationType === 'FAMILY') {
+                            // 这里我们直接实现收集家庭成员数据的函数，而不是调用外部函数
+                            const familyMembers = [];
+                            // 获取所有家庭成员元素
+                            const familyMemberElements = document.querySelectorAll('.family-member');
+                            
+                            familyMemberElements.forEach((member, index) => {
+                                // 获取成员数据
+                                const relation = member.querySelector('select[name$="[relation]"]')?.value;
+                                const identityType = member.querySelector('select[name$="[identityType]"]')?.value;
+                                const residenceConsulate = member.querySelector('select[name$="[residenceConsulate]"]')?.value ||
+                                                        document.querySelector('input[name="residenceConsulate"]:checked')?.value;
+                                const hukouConsulate = member.querySelector('select[name$="[hukouConsulate]"]')?.value ||
+                                                    document.querySelector('input[name="hukouConsulate"]:checked')?.value;
+                                
+                                if (relation && identityType) {
+                                    familyMembers.push({
+                                        relation: relation,
+                                        identityType: identityType,
+                                        residenceConsulate: residenceConsulate,
+                                        hukouConsulate: hukouConsulate,
+                                        number: index + 1
+                                    });
+                                }
+                            });
+                            
+                            console.log('添加家庭成员数据:', familyMembers);
+                            pdfFormData.familyMembers = familyMembers;
+                        }
+                        
                         console.log('PDF表单数据:', pdfFormData);
                         
                         // 创建一个表单元素
@@ -1047,14 +1078,18 @@
                         
                         // 将表单数据添加为隐藏字段
                         for (const key in pdfFormData) {
-                            if (pdfFormData.hasOwnProperty(key) && pdfFormData[key] !== undefined) {
-                                const input = document.createElement('input');
-                                input.type = 'hidden';
-                                input.name = key;
-                                input.value = typeof pdfFormData[key] === 'object' ? 
-                                    JSON.stringify(pdfFormData[key]) : pdfFormData[key];
-                                form.appendChild(input);
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            
+                            // 对于数组或对象类型的数据，转换为JSON字符串
+                            if (typeof pdfFormData[key] === 'object' && pdfFormData[key] !== null) {
+                                input.value = JSON.stringify(pdfFormData[key]);
+                            } else {
+                                input.value = pdfFormData[key];
                             }
+                            
+                            form.appendChild(input);
                         }
                         
                         // 将表单添加到文档中并提交
@@ -1072,7 +1107,8 @@
                     } catch (error) {
                         console.error('生成PDF时出错:', error);
                         alert('生成PDF时出错，请重试。');
-                        downloadPdfBtn.innerHTML = originalButtonText;
+                        // 确保重置按钮状态
+                        downloadPdfBtn.innerHTML = '<i class="bi bi-file-earmark-pdf me-1"></i>下载PDF';
                         downloadPdfBtn.disabled = false;
                     }
                 });

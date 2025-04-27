@@ -2140,7 +2140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         console.log('收集到的家庭成员:', familyMembers);
-        return familyMembers;
+        return familyMembers; // 即使没有家庭成员，也返回空数组
     }
 
     // 处理申请类型变更
