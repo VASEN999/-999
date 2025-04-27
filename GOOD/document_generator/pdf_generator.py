@@ -171,6 +171,16 @@ class PDFGenerator:
         """生成增强的HTML版本，确保中文正确显示"""
         document_items = []
         
+        # 记录表单数据中的经济材料选项和实际生成的财力证明内容
+        logger.debug("PDF生成的经济材料选项: %s", form_data.get('economicMaterial') if form_data else None)
+        logger.debug("PDF生成的处理方式: %s", form_data.get('processType') if form_data else None)
+        
+        # 如果document_list中有财力证明部分，记录它的实际内容
+        if '财力证明' in document_list:
+            logger.debug("实际PDF财力证明内容:")
+            for item in document_list.get('财力证明', []):
+                logger.debug("  - %s", item)
+        
         # 处理所有材料清单部分，但跳过基本信息部分（已经在申请人信息确认中展示）
         for section_name, materials in document_list.items():
             if not materials or section_name == '基本信息':  # 跳过空部分和基本信息部分
@@ -180,8 +190,11 @@ class PDFGenerator:
             document_items.append(f'<div class="material-section">')
             document_items.append(f'<h2 style="border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 25px;">{section_name}</h2>')
             document_items.append('<ul style="margin: 15px 0 25px 20px; padding-left: 20px;">')
+            
+            # 使用document_list中的实际材料列表，确保与页面显示一致
             for material in materials:
                 document_items.append(f'<li style="margin-bottom: 12px;">{material}</li>')
+                
             document_items.append('</ul>')
             document_items.append('</div>')
         
@@ -196,6 +209,15 @@ class PDFGenerator:
             # 显示下划线，供打印后手写填写
             order_number = '<span style="display: inline-block; min-width: 200px; border-bottom: 1px solid #000;">&nbsp;</span>'
         
+        # 检查是否加急
+        is_urgent = False
+        if form_data and form_data.get('isUrgent'):
+            is_urgent_value = form_data.get('isUrgent')
+            if isinstance(is_urgent_value, bool):
+                is_urgent = is_urgent_value
+            elif isinstance(is_urgent_value, str):
+                is_urgent = is_urgent_value.lower() == 'true'
+        
         # 现在制作顶部信息部分（不再单独显示基本信息部分）
         # 订单号单独一行，其他信息左右分布
         header_items = [
@@ -205,6 +227,33 @@ class PDFGenerator:
             f'<div class="header-item"><strong>申请领区：</strong>{consulate}</div>',
             f'<div class="header-item"><strong>生成日期：</strong>{generated_date}</div>'
         ]
+        
+        # 创建加急印章样式
+        urgent_stamp = """
+        <div class="urgent-stamp" style="
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            border: 3px solid #f44336;
+            border-radius: 50%;
+            transform: rotate(20deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f44336;
+            font-size: 28px;
+            font-weight: bold;
+            opacity: 0.85;
+            text-align: center;
+            line-height: 1;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            z-index: 100;
+        ">
+        加急<br>处理
+        </div>
+        """ if is_urgent else ""
         
         html = f"""<!DOCTYPE html>
 <html>
@@ -388,7 +437,7 @@ class PDFGenerator:
     </style>
 </head>
 <body>
-    <h1>日本签证申请材料清单</h1>
+    <h1 style="position: relative;">日本签证申请材料清单{urgent_stamp}</h1>
     
     <div class="document-header">
         {"".join(header_items)}
@@ -416,6 +465,18 @@ class PDFGenerator:
         
         # 记录接收到的form_data类型和内容
         logger.debug("_generate_applicant_details接收到的form_data类型: %s", type(form_data))
+        logger.debug("访问日本状态: %s, 类型: %s", form_data.get('previousVisit'), type(form_data.get('previousVisit')))
+        
+        # 处理previousVisit的布尔值转换
+        def convert_to_bool(value):
+            if isinstance(value, bool):
+                return value
+            if isinstance(value, str):
+                return value.lower() == 'true'
+            return False
+        
+        # 获取并转换主申请人的访问状态
+        visited_japan = convert_to_bool(form_data.get('previousVisit', False))
         
         details = ['<div class="details-box">']
         details.append('<h2 style="margin-top: 0;">申请人信息确认</h2>')
@@ -512,14 +573,15 @@ class PDFGenerator:
             details.append('<tr>')
             details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">是否曾经访问日本</td>')
             
-            visited_japan = form_data.get('visitedJapan', False)
+            # 主申请人的访问状态
             visited_text = "是" if visited_japan else "否"
             details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{visited_text}</td>')
             
-            for member in family_members:
-                member_visited = member.get('visitedJapan', False)
-                member_visited_text = "是" if member_visited else "否"
-                details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{member_visited_text}</td>')
+            # 家庭成员的访问状态留空，添加下划线
+            for _ in family_members:
+                details.append('<td style="border:1px solid #ddd; padding:10px; text-align:center;">')
+                details.append('<div style="display:inline-block; min-width:30px; border-bottom:1px solid #000;">&nbsp;</div>')
+                details.append('</td>')
             
             details.append('</tr>')
             
@@ -591,7 +653,6 @@ class PDFGenerator:
             details.append(f'<p class="member-detail"><strong>申请人身份: </strong>{identity_text}</p>')
             
             # 是否曾经访问日本
-            visited_japan = form_data.get('visitedJapan', False)
             visited_text = "是" if visited_japan else "否"
             details.append(f'<p class="member-detail"><strong>是否曾经访问日本: </strong>{visited_text}</p>')
             

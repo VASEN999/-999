@@ -160,6 +160,11 @@ def generate_pdf():
             for i, member in enumerate(family_members):
                 logger.debug(f"家庭成员 {i+1}: {member}")
         
+        # 检查并处理economicMaterial参数
+        economic_material = form_data.get('economicMaterial')
+        if economic_material:
+            logger.debug(f"检测到经济材料选项: {economic_material}")
+        
         logger.debug("处理后的表单数据: %s", str(form_data))
             
         # 检查居住地领区

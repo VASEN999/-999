@@ -122,23 +122,32 @@ class FinancialMaterialsGenerator:
         economic_material = form_data.get('economicMaterial', '')
         residence_consulate = form_data.get('residenceConsulate', '').lower()
         
+        # 详细记录经济材料类型，辅助诊断
+        logger.debug("普通经济材料办理: 经济材料类型=%s, 类型=%s, 签证期限=%s", 
+                   economic_material, type(economic_material), visa_duration)
+        
         # 根据经济材料类型返回对应的要求
         if economic_material:
             # 信用卡金卡
             if economic_material in ['credit_card', 'creditCard']:
+                logger.debug("已选择信用卡金卡，生成对应材料清单")
                 return ["信用卡金卡及以上（自行遮挡CVV码）+有效性证明（近期三个月电子账单或pos机联）", 
                         "备注：账单联系信用卡客服索取，需体现姓名/卡号/额度/消费明细"]
             
             # 工资流水相关选项
             elif economic_material in ['salary_single', 'salarySingle']:
+                logger.debug("已选择工资流水10万，生成对应材料清单")
                 return ["年工资流水10万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             elif economic_material in ['salary_three', 'salaryThree']:
+                logger.debug("已选择工资流水20万，生成对应材料清单")
                 return ["年工资流水20万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             elif economic_material in ['salary_five', 'salaryFive']:
+                logger.debug("已选择工资流水50万，生成对应材料清单")
                 return ["年工资流水50万以上（需可以验证，并仅统计能确认是工资收入的项）"]
             
             # 存款/理财证明相关选项
             elif economic_material in ['deposit_single', 'depositSingle']:
+                logger.debug("已选择存款证明10万，生成对应材料清单")
                 # 上海领区需要额外提供收入流水
                 if residence_consulate == 'shanghai':
                     return [f"存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
@@ -146,6 +155,7 @@ class FinancialMaterialsGenerator:
                 else:
                     return [f"存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
             elif economic_material in ['deposit_three', 'depositThree']:
+                logger.debug("已选择存款证明50万，生成对应材料清单")
                 # 上海领区需要额外提供收入流水
                 if residence_consulate == 'shanghai':
                     return [f"存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
@@ -153,12 +163,17 @@ class FinancialMaterialsGenerator:
                 else:
                     return [f"存款/理财证明：50万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
             elif economic_material in ['deposit_five', 'depositFive']:
+                logger.debug("已选择存款证明100万，生成对应材料清单")
                 # 上海领区需要额外提供收入流水
                 if residence_consulate == 'shanghai':
                     return [f"存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）", 
                             f"近期一年的收入流水"]
                 else:
                     return [f"存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）"]
+            else:
+                logger.warning("未能识别的经济材料类型: %s", economic_material)
+        else:
+            logger.debug("未指定经济材料类型，使用默认逻辑")
         
         # 如果没有选择经济材料类型或无法识别选项，则使用默认逻辑
         materials = []

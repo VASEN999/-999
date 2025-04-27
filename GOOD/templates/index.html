@@ -942,6 +942,17 @@
                                             <div class="form-text small">此订单号将显示在生成的PDF材料清单中</div>
                                         </div>
                                         
+                                        <!-- 添加加急选项 -->
+                                        <div class="mb-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="urgentCheckbox">
+                                                <label class="form-check-label" for="urgentCheckbox">
+                                                    <span class="badge bg-danger"><i class="bi bi-alarm me-1"></i>加急处理</span>
+                                                </label>
+                                                <div class="form-text small">选中此项将在PDF中添加加急标识</div>
+                                            </div>
+                                        </div>
+                                        
                                         <p class="text-muted small mb-3">请根据以下清单准备材料，所有材料按顺序整理并装订。</p>
                                         
                                         <div id="documentList" class="border rounded bg-white p-3">
@@ -1028,14 +1039,15 @@
                         // 收集是否曾经访问日本
                         pdfFormData.previousVisit = document.querySelector('input[name="previousVisit"]:checked')?.value || 'false';
                         
-                        // 添加申请人姓名（因为表单中没有此字段，直接使用固定值）
-                        pdfFormData.applicantName = "申请人";
-                        
                         // 获取用户输入的订单号
                         const orderNumber = document.getElementById('orderNumber')?.value || '';
                         if (orderNumber) {
                             pdfFormData.orderNumber = orderNumber;
                         }
+                        
+                        // 获取加急状态
+                        const isUrgent = document.getElementById('urgentCheckbox')?.checked || false;
+                        pdfFormData.isUrgent = isUrgent;
                         
                         // 检查特殊情况字段
                         if (pdfFormData.applicationType === 'BINDING') {
