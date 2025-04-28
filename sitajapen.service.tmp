@@ -1,0 +1,15 @@
+[Unit]
+Description=Sitajapen Flask Application
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/VASEN/GOOD
+Environment="PATH=/home/ubuntu/VASEN/.venv/bin"
+ExecStart=/home/ubuntu/VASEN/.venv/bin/python app.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

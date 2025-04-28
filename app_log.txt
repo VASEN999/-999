@@ -8910,3 +8910,422 @@ NameError: name 'document_items' is not defined. Did you mean: 'document_list'?
 2025-04-28 15:45:33,614 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 15:45:33] "POST /api/generate_pdf HTTP/1.1" 200 -
 2025-04-28 15:46:14,396 - werkzeug - ERROR - 92.255.85.113 - - [28/Apr/2025 15:46:14] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
 2025-04-28 15:46:14,397 - werkzeug - INFO - 92.255.85.113 - - [28/Apr/2025 15:46:14] "[31m[1m  /*à     Cookie: mstshash=Administr[0m" 400 -
+2025-04-28 15:49:03,104 - app - INFO - 收到材料清单生成请求: {"residence": "shanghai", "hukou": "beijing", "applicationType": "BINDING", "visaType": "THREE", "processType": "NORMAL"}
+2025-04-28 15:49:03,104 - document_generator.basic_materials - DEBUG - 生成上海领区基本材料: ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '在职证明（原件）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）']
+2025-04-28 15:49:03,104 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=shanghai, hukou=beijing, type=BINDING
+2025-04-28 15:49:03,104 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）']
+2025-04-28 15:49:03,104 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 上海', '户籍所在地领区: 北京', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '在职证明（原件）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 15:49:03,104 - app - INFO - 生成的居住证明材料:
+2025-04-28 15:49:03,104 - app - INFO -   外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-28 15:49:03,105 - app - INFO -   1. 居住证双面复印件（上海居住证需额外附上密码）
+2025-04-28 15:49:03,105 - app - INFO -   2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）
+2025-04-28 15:49:03,105 - app - INFO -   3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）
+2025-04-28 15:49:03,105 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 15:49:03] "POST /api/generate HTTP/1.1" 200 -
+2025-04-28 15:49:21,625 - app - INFO - 收到材料清单生成请求: {"residence": "shanghai", "hukou": "beijing", "applicationType": "BINDING", "visaType": "THREE", "processType": "NORMAL"}
+2025-04-28 15:49:21,626 - document_generator.basic_materials - DEBUG - 生成上海领区基本材料: ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）']
+2025-04-28 15:49:21,626 - document_generator.identity_materials - DEBUG - 为身份 RETIRED 生成身份材料: ['退休证复印件']
+2025-04-28 15:49:21,626 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=shanghai, hukou=beijing, type=BINDING
+2025-04-28 15:49:21,626 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）']
+2025-04-28 15:49:21,626 - document_generator.other_materials - DEBUG - 上海领区：主申请人是退休人员，添加退休证明要求
+2025-04-28 15:49:21,626 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 上海', '户籍所在地领区: 北京', '申请类型: 申请人是三年多次往返签证持有人的父母', '家属签证类型: 三年多次往返签证'], '基本材料': ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '签证持有人的护照首页复印件 + 签证页复印件', '与签证持有人的关系证明材料（子女出生证明/户口本）'], '财力证明': ['签证持有人的财力证明材料（能够确认年收入的存款/理财证明或税单）'], '居住证明材料': ['外领区户籍需提供以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（主申请人）']})
+2025-04-28 15:49:21,626 - app - INFO - 生成的居住证明材料:
+2025-04-28 15:49:21,626 - app - INFO -   外领区户籍需提供以下居住证明材料（选择一种即可）：
+2025-04-28 15:49:21,626 - app - INFO -   1. 居住证双面复印件（上海居住证需额外附上密码）
+2025-04-28 15:49:21,626 - app - INFO -   2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）
+2025-04-28 15:49:21,626 - app - INFO -   3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）
+2025-04-28 15:49:21,627 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 15:49:21] "POST /api/generate HTTP/1.1" 200 -
+2025-04-28 16:04:09,284 - werkzeug - INFO - 23.234.111.220 - - [28/Apr/2025 16:04:09] "GET / HTTP/1.1" 200 -
+2025-04-28 16:04:11,456 - werkzeug - ERROR - 23.234.111.220 - - [28/Apr/2025 16:04:11] code 400, message Bad request version ('À\x13À')
+2025-04-28 16:04:11,457 - werkzeug - INFO - 23.234.111.220 - - [28/Apr/2025 16:04:11] "[31m[1m ä  à79&èQ÷nßùùe]U¬PMlûdþ^Xª¿èú D ll68æ½ ,ýé¶B'@©§Ë=W À+À/À,À0Ì©Ì¨À	ÀÀ[0m" 400 -
+2025-04-28 16:07:30,888 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:07:30] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x07\x17\x01\x00\x07\x13\x03\x03{x-Õâ[[5$\x98(:ÍßÔ>ú'ÓVöwþó\x91o\x94UØ\x1b*¨")
+2025-04-28 16:07:30,889 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:30] "[31m[1m {x-Õâ[[5$(:ÍßÔ>ú'ÓVöwþóoUØ*¨ qn¼ÏþÞ$[0m" 400 -
+2025-04-28 16:07:30,943 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:07:30] code 400, message Bad request version ("\x06\x10Gëü\x92yÞbánn'J\x95")
+2025-04-28 16:07:30,943 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:30] "[31m[1m÷ óÌõ«:ï-´¸ý¼¥uõæ-U]¯ñÙ ¿a æbÚíã¨}QÙî=Ëú×®ÿuÝgôûÕfa  ZZÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 ªª  þ ú   :  %è%á?ÁÈl#©ÜÜÀ0û'ý©u Ð/Ý@HºÃAÛ°õ¤c¿cT»UâäI'[,#öi[84ËV¿øbÝ8>D|Öñe¨aåVÅðz}àÖÐ²Î;ÙAÜðÔËkg¶u¬{Â*}2±Ok7iô,C9Wö":Þò´	GëüyÞbánn'J[0m" 400 -
+2025-04-28 16:07:32,816 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:32] "GET / HTTP/1.1" 200 -
+2025-04-28 16:07:32,930 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:32] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-28 16:07:33,687 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:33] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:07:35,049 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:07:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-28 16:14:09,433 - werkzeug - INFO - 180.101.245.247 - - [28/Apr/2025 16:14:09] "GET / HTTP/1.1" 200 -
+2025-04-28 16:14:10,988 - werkzeug - INFO - 220.196.160.95 - - [28/Apr/2025 16:14:10] "GET / HTTP/1.1" 200 -
+2025-04-28 16:14:11,525 - werkzeug - INFO - 220.196.160.95 - - [28/Apr/2025 16:14:11] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-28 16:14:11,547 - werkzeug - INFO - 220.196.160.95 - - [28/Apr/2025 16:14:11] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:14:33,800 - werkzeug - INFO - 220.196.160.146 - - [28/Apr/2025 16:14:33] "GET / HTTP/1.1" 200 -
+2025-04-28 16:14:35,537 - werkzeug - INFO - 220.196.160.75 - - [28/Apr/2025 16:14:35] "GET / HTTP/1.1" 200 -
+2025-04-28 16:14:35,840 - werkzeug - INFO - 220.196.160.75 - - [28/Apr/2025 16:14:35] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-28 16:14:35,865 - werkzeug - INFO - 220.196.160.75 - - [28/Apr/2025 16:14:35] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:15:03,308 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:15:03] "GET / HTTP/1.1" 200 -
+2025-04-28 16:15:03,389 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:15:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:15:04,167 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:15:04] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:19:00,826 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:19:00] "GET / HTTP/1.1" 200 -
+2025-04-28 16:26:49,290 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:26:49] "[33mGET /wordpress/wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 16:27:14,642 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:27:14] "GET / HTTP/1.0" 200 -
+2025-04-28 16:27:14,689 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:27:14] "GET /static/css/style.css HTTP/1.0" 200 -
+2025-04-28 16:27:14,716 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:27:14] "GET /static/js/main.js HTTP/1.0" 200 -
+2025-04-28 16:27:15,609 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:27:15] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+2025-04-28 16:27:36,734 - werkzeug - INFO - 180.167.70.134 - - [28/Apr/2025 16:27:36] "GET / HTTP/1.1" 200 -
+2025-04-28 16:27:36,769 - werkzeug - INFO - 180.167.70.134 - - [28/Apr/2025 16:27:36] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-28 16:27:36,855 - werkzeug - INFO - 180.167.70.134 - - [28/Apr/2025 16:27:36] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:27:37,453 - werkzeug - INFO - 180.167.70.134 - - [28/Apr/2025 16:27:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-28 16:27:48,937 - werkzeug - INFO - 123.6.49.47 - - [28/Apr/2025 16:27:48] "GET / HTTP/1.1" 200 -
+2025-04-28 16:27:49,007 - werkzeug - INFO - 123.6.49.44 - - [28/Apr/2025 16:27:49] "GET / HTTP/1.1" 200 -
+2025-04-28 16:27:49,051 - werkzeug - INFO - 123.6.49.18 - - [28/Apr/2025 16:27:49] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-28 16:27:49,067 - werkzeug - INFO - 123.6.49.44 - - [28/Apr/2025 16:27:49] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:27:54,225 - werkzeug - INFO - 180.163.28.109 - - [28/Apr/2025 16:27:54] "GET / HTTP/1.1" 200 -
+2025-04-28 16:27:57,560 - werkzeug - INFO - 180.163.28.109 - - [28/Apr/2025 16:27:57] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-04-28 16:28:01,696 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:28:01] "[33mGET /wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 16:28:51,996 - app - INFO - 收到材料清单生成请求: {"residence": "shanghai", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "FIVE", "processType": "NORMAL"}
+2025-04-28 16:28:51,996 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-28 16:28:51,996 - app - INFO - 家庭成员1: 居住地=shanghai, 户籍地=shanghai
+2025-04-28 16:28:51,996 - document_generator.basic_materials - DEBUG - 生成上海领区基本材料: ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）']
+2025-04-28 16:28:51,996 - document_generator.identity_materials - DEBUG - 为身份 RETIRED 生成身份材料: ['退休证复印件']
+2025-04-28 16:28:51,996 - document_generator.financial_materials - DEBUG - 普通经济材料办理: 经济材料类型=deposit_five, 类型=<class 'str'>, 签证期限=FIVE
+2025-04-28 16:28:51,996 - document_generator.financial_materials - DEBUG - 已选择存款证明100万，生成对应材料清单
+2025-04-28 16:28:51,996 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水']
+2025-04-28 16:28:51,997 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=shanghai, hukou=shanghai, type=FAMILY
+2025-04-28 16:28:51,997 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=shanghai, hukou=shanghai
+2025-04-28 16:28:51,997 - document_generator.residence_materials - INFO - 家庭申请中没有发现需要居住证明的成员
+2025-04-28 16:28:51,997 - document_generator.family_materials - DEBUG - 家庭成员 家庭成员1 是自由职业者(FREELANCE)，材料将在其他材料部分显示
+2025-04-28 16:28:51,997 - document_generator.other_materials - DEBUG - 上海领区：主申请人是退休人员，添加退休证明要求
+2025-04-28 16:28:51,997 - document_generator.other_materials - DEBUG - 家庭成员中发现自由职业者:  1, 身份类型: FREELANCE
+2025-04-28 16:28:51,997 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 上海', '户籍所在地领区: 上海', '申请类型: 五年多次往返签证'], '基本材料': ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）'], '财力证明': ['存款/理财证明：100万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 退休人员需要提供退休证或能够证明退休的文件复印件（主申请人）', '3. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-28 16:28:51,997 - werkzeug - INFO - 180.167.70.134 - - [28/Apr/2025 16:28:51] "POST /api/generate HTTP/1.1" 200 -
+2025-04-28 16:35:42,952 - werkzeug - INFO - 185.214.96.198 - - [28/Apr/2025 16:35:42] "GET / HTTP/1.1" 200 -
+2025-04-28 16:35:44,900 - werkzeug - INFO - 45.133.193.24 - - [28/Apr/2025 16:35:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-28 16:35:56,579 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-28 16:35:56,587 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.2.24.4:5000
+2025-04-28 16:35:56,587 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 16:35:56,588 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 16:35:57,181 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-28 16:35:57,186 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 16:35:57,201 - werkzeug - INFO -  * Debugger PIN: 131-038-570
+2025-04-28 16:36:05,908 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:36:05] "GET / HTTP/1.1" 200 -
+2025-04-28 16:36:06,008 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:36:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:36:06,773 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:36:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:37:25,210 - werkzeug - INFO - 54.227.43.111 - - [28/Apr/2025 16:37:25] "GET / HTTP/1.1" 200 -
+2025-04-28 16:37:54,798 - app - INFO - 收到材料清单生成请求: {"residence": "shanghai", "hukou": "beijing", "applicationType": "SINGLE", "visaType": "SINGLE", "processType": "NORMAL"}
+2025-04-28 16:37:54,799 - document_generator.basic_materials - DEBUG - 生成上海领区基本材料: ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '在职证明（原件）']
+2025-04-28 16:37:54,799 - document_generator.financial_materials - DEBUG - 普通经济材料办理: 经济材料类型=deposit_single, 类型=<class 'str'>, 签证期限=SINGLE
+2025-04-28 16:37:54,799 - document_generator.financial_materials - DEBUG - 已选择存款证明10万，生成对应材料清单
+2025-04-28 16:37:54,799 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水']
+2025-04-28 16:37:54,799 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=shanghai, hukou=beijing, type=SINGLE
+2025-04-28 16:37:54,799 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）']
+2025-04-28 16:37:54,799 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 上海', '户籍所在地领区: 北京', '申请类型: 单次签证'], '基本材料': ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）', '在职证明（原件）'], '财力证明': ['存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水'], '居住证明材料': ['以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 16:37:54,799 - app - INFO - 生成的居住证明材料:
+2025-04-28 16:37:54,800 - app - INFO -   以下居住证明材料（选择一种即可）：
+2025-04-28 16:37:54,800 - app - INFO -   1. 居住证双面复印件（上海居住证需额外附上密码）
+2025-04-28 16:37:54,800 - app - INFO -   2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）
+2025-04-28 16:37:54,800 - app - INFO -   3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）
+2025-04-28 16:37:54,800 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:37:54] "POST /api/generate HTTP/1.1" 200 -
+2025-04-28 16:38:17,580 - app - INFO - 收到材料清单生成请求: {"residence": "shanghai", "hukou": "beijing", "applicationType": "SINGLE", "visaType": "SINGLE", "processType": "NORMAL"}
+2025-04-28 16:38:17,580 - document_generator.basic_materials - DEBUG - 生成上海领区基本材料: ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）']
+2025-04-28 16:38:17,580 - document_generator.identity_materials - DEBUG - 为身份 FREELANCER 生成身份材料: ['自由职业情况说明', '与自由职业收入相关的证明文件（流水、股票交割单等）']
+2025-04-28 16:38:17,580 - document_generator.financial_materials - DEBUG - 普通经济材料办理: 经济材料类型=deposit_single, 类型=<class 'str'>, 签证期限=SINGLE
+2025-04-28 16:38:17,581 - document_generator.financial_materials - DEBUG - 已选择存款证明10万，生成对应材料清单
+2025-04-28 16:38:17,581 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水']
+2025-04-28 16:38:17,581 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=shanghai, hukou=beijing, type=SINGLE
+2025-04-28 16:38:17,581 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）']
+2025-04-28 16:38:17,581 - document_generator.other_materials - DEBUG - 主申请人是自由职业者: FREELANCER
+2025-04-28 16:38:17,581 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 上海', '户籍所在地领区: 北京', '申请类型: 单次签证'], '基本材料': ['护照原件+首页彩色复印件（剩余有效期大于7个月）', '签证申请表（双面打印）', '小两寸（3.5cmx4.5cm）白底证件照（近期6个月内拍摄）', '户口本复印件（家庭户：户首页+户主页+本人页）'], '财力证明': ['存款/理财证明：10万以上（需要提前确认是可验证银行开具的存款/理财证明）', '近期一年的收入流水'], '居住证明材料': ['以下居住证明材料（选择一种即可）：', '1. 居住证双面复印件（上海居住证需额外附上密码）', '2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）', '3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）'], '其他材料': ['1. 和纸质照片一致的电子版照片', '2. 自由职业或无业要写收入来源说明并提供相关的证明材料（包括家庭成员的申请）']})
+2025-04-28 16:38:17,581 - app - INFO - 生成的居住证明材料:
+2025-04-28 16:38:17,581 - app - INFO -   以下居住证明材料（选择一种即可）：
+2025-04-28 16:38:17,581 - app - INFO -   1. 居住证双面复印件（上海居住证需额外附上密码）
+2025-04-28 16:38:17,581 - app - INFO -   2. 近期一年的社保（社保单最低要近期6个月缴纳在上海领区内）
+2025-04-28 16:38:17,581 - app - INFO -   3. 近期一年的纳税证明（税单最低要近期6个月缴纳在上海领区内）
+2025-04-28 16:38:17,582 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:38:17] "POST /api/generate HTTP/1.1" 200 -
+2025-04-28 16:39:38,164 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/app.py', reloading
+2025-04-28 16:39:38,238 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 16:39:38,763 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-28 16:39:38,769 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 16:39:38,771 - werkzeug - INFO -  * Debugger PIN: 131-038-570
+2025-04-28 16:41:54,048 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:41:54,049 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:41:54,672 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:41:54,673 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:41:55,413 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:41:55,414 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:41:56,182 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:41:56,183 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:41:56,920 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:41:56,921 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:43:15,536 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:43:15,537 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:43:15,544 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.2.24.4:5000
+2025-04-28 16:43:15,544 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 16:43:15,545 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 16:43:15,986 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:43:15,987 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:43:15,992 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 16:43:15,995 - werkzeug - INFO -  * Debugger PIN: 128-554-905
+2025-04-28 16:43:49,795 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:43:49] "GET / HTTP/1.1" 200 -
+2025-04-28 16:43:49,977 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:43:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:43:50,741 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:43:50] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:45:29,578 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/app.py', reloading
+2025-04-28 16:45:29,648 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 16:45:30,077 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:45:30,078 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:45:30,083 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 16:45:30,085 - werkzeug - INFO -  * Debugger PIN: 128-554-905
+2025-04-28 16:45:34,394 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:45:34] "GET / HTTP/1.1" 200 -
+2025-04-28 16:45:34,482 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:45:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:45:34,896 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:45:34] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:46:15,122 - werkzeug - INFO - 220.196.160.95 - - [28/Apr/2025 16:46:15] "[31m[1mGET /api/generate HTTP/1.1[0m" 405 -
+2025-04-28 16:47:08,373 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-28 16:47:18,550 - werkzeug - INFO -  * Detected change in '/home/ubuntu/VASEN/GOOD/app.py', reloading
+2025-04-28 16:47:18,622 - werkzeug - INFO -  * Restarting with stat
+2025-04-28 16:47:19,056 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 16:47:19,057 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 16:47:19,062 - werkzeug - WARNING -  * Debugger is active!
+2025-04-28 16:47:19,065 - werkzeug - INFO -  * Debugger PIN: 128-554-905
+2025-04-28 16:47:32,948 - document_generator.pdf_generator - DEBUG - wkhtmltopdf已安装
+2025-04-28 16:47:41,809 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:47:41] "GET / HTTP/1.1" 200 -
+2025-04-28 16:47:41,907 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:47:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:47:42,259 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:47:42] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:49:53,608 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:49:53] "GET / HTTP/1.1" 200 -
+2025-04-28 16:49:56,609 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:49:56] "GET / HTTP/1.1" 200 -
+2025-04-28 16:49:56,741 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:49:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:49:58,117 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:49:58] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:52:29,059 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:52:29] "GET / HTTP/1.0" 200 -
+2025-04-28 16:52:32,909 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:52:32] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+2025-04-28 16:54:10,848 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:54:10] "[33mGET /api/session/properties HTTP/1.0[0m" 404 -
+2025-04-28 16:54:46,374 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:54:46] "GET / HTTP/1.0" 200 -
+2025-04-28 16:55:01,763 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:55:01] "GET / HTTP/1.0" 200 -
+2025-04-28 16:55:14,534 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:55:14] "GET / HTTP/1.0" 200 -
+2025-04-28 16:55:18,754 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:55:18] "GET / HTTP/1.0" 200 -
+2025-04-28 16:55:25,649 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:55:25] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:55:32,876 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:55:32] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:56:28,550 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:56:28] "[33mGET /wordpress/wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 16:57:28,285 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:57:28] "[33mGET /wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 16:57:42,737 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:57:42] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:58:07,525 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:58:07] "[33mGET /wordpress/wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 16:58:53,377 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:58:53] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:58:56,097 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:58:56] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:58:58,673 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request version ('úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06ª\x9a\x9a\x00\x00\x00')
+2025-04-28 16:58:58,673 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m F=.ÀrËbQßeçGgKóz¬»ßxUáG3¥ +êË|zß`èÖ4{NþâNDoÎJàx  úúÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 ª   [0m" 400 -
+2025-04-28 16:58:58,673 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04í\x9a\x9a\x00\x01\x00\x11ì\x04À\x81û')
+2025-04-28 16:58:58,674 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m× Ó>=´q?a9¥^Õ ©ÉÖëØå/ªúÚäCÑ jÂ¦¤®»à%Óp9Ü¬Ø£«' 8Uá*  ÊÊÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 jÊÊ               3ïí  ìÀû[0m" 400 -
+2025-04-28 16:58:58,674 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x8aJJ\x00\x00\x00\x00\x00\x13\x00\x11\x00\x00\x0esitajapen.site\x00\x12\x00\x00\x00')
+2025-04-28 16:58:58,674 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m÷ ó¹þõ öÓ6!$ýß@ÐYû[åSþ¦MF ü ·kÁSóZ)®êÈ^	Ðf&ûmÁA±ëÞ  **À+À/À,À0Ì©Ì¨ÀÀ   / 5 JJ        sitajapen.site    [0m" 400 -
+2025-04-28 16:58:58,736 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request version ('\x00\x02\x01\x00\x00\x00\x00\x13\x00\x11\x00\x00\x0esitajapen.site\x00-\x00\x02\x01\x01\x00')
+2025-04-28 16:58:58,736 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m ÷zòÌ}ðI¥·r}÷ìåéADX´ð@ô~µ] 'áËÄS¥²>þW}ºû;ùMY­¶u=¦6Éi  À+À/À,À0Ì©Ì¨ÀÀ   / 5 ªúú   + ÿ           sitajapen.site -  [0m" 400 -
+2025-04-28 16:58:58,737 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request version ('Ê')
+2025-04-28 16:58:58,738 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m· ³Os·zHjµÊ[0m" 400 -
+2025-04-28 16:58:58,738 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 16:58:58] code 400, message Bad request syntax ('\x16\x03\x01\x06·\x01\x00\x06³\x03\x03')
+2025-04-28 16:58:58,738 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:58:58] "[31m[1m· ³[0m" 400 -
+2025-04-28 16:59:01,007 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:59:01] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 16:59:03,483 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:59:03] "GET / HTTP/1.1" 200 -
+2025-04-28 16:59:03,623 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:59:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:59:04,391 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:59:04] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 16:59:06,784 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 16:59:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 16:59:08,291 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:59:08] "GET / HTTP/1.0" 200 -
+2025-04-28 16:59:45,035 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 16:59:45] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:00:12,910 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:00:12] "GET / HTTP/1.0" 200 -
+2025-04-28 17:00:39,163 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:00:39] "GET / HTTP/1.0" 200 -
+2025-04-28 17:00:40,448 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:00:40] "[33mGET /wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 17:01:57,649 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:01:57] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:02:15,725 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:02:15] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:02:21,198 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:02:21] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=STUDENT&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:02:33,500 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:02:33] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=STUDENT&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:03:35,259 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:03:35] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=STUDENT&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:04:48,712 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:04:48] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=STUDENT&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:04:50,650 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:04:50] "[33mGET /debug/default/view?panel=config HTTP/1.0[0m" 404 -
+2025-04-28 17:05:01,537 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:05:01] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:05:04,914 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:05:04] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:05:11,747 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:05:11] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:05:14,504 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:05:14] "GET /?residenceConsulate=beijing&hukouConsulate=shanghai&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:05:23,184 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:05:23] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:07:50,032 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:07:50] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:07:59,840 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:07:59] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:08:03,597 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:08:03] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:08:09,014 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:08:09] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:08:17,462 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:08:17] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:08:34,655 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 17:08:34] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x00\x00\x13\x00\x11\x00\x00\x0esitajapen.site\x00')
+2025-04-28 17:08:34,656 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:34] "[31m[1m× ÓïO£àÂo-C6FH½[<ñÐfZl+ö×Z 4æ$mt¹Ü¡sK§anRÜæ^d9$5  êêÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 j      #     ÿ           sitajapen.site [0m" 400 -
+2025-04-28 17:08:34,657 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 17:08:34] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00\x12\x00\x00\x00')
+2025-04-28 17:08:34,657 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:34] "[31m[1m· ³ÐE¶@®8cv65-ÎóåÿJHr*+W IäTN>¢$?R·5³%³SÙ?ÜÛ&MOòh"a  ÊÊÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 Jºº        sitajapen.site             [0m" 400 -
+2025-04-28 17:08:34,736 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 17:08:34] code 400, message Bad request version ('êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x8a**\x00\x00\x00\x12\x00\x00\x00')
+2025-04-28 17:08:34,736 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:34] "[31m[1m÷ ó¥+LãAþl^«¬_¤ZæË©ZáK?h9Àºå¤®uB áÇùnCvü&"·bL°ÕÐB%QRy&1`©P  êêÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 **      [0m" 400 -
+2025-04-28 17:08:34,737 - werkzeug - ERROR - 124.64.23.8 - - [28/Apr/2025 17:08:34] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00-\x00\x02\x01\x01\x00')
+2025-04-28 17:08:34,737 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:34] "[31m[1m· ³{¼×'uKí+¬ùtÓíK¼M^A¶#_Û¯i UèGÞÔè.Òôoíå MÚB`ö(ÖéÏÆ³fM	¤)=  ZZÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 J   #        þ º   Ã  ­ZH¾+ÑMØ¦aÆÕ×FpÝõUÃ¾ðU% ¾Q¹Ç½ÿrI3£æS×£~<CCa«ú¼/ðÐ.ÖF·Ãñe¤1^4iµ¦§<zØæÙSnëw@vÉ¹O6écJà n t1Òj¯&N÷5te2(¦P0þ> h_GöÉõ ½;É®L³6rÇÇcÃ¾s"Ü1xñêáO9\&Ñ&ÛB»DÍ  h2    -  [0m" 400 -
+2025-04-28 17:08:36,309 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:36] "GET / HTTP/1.1" 200 -
+2025-04-28 17:08:36,374 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-28 17:08:37,273 - werkzeug - INFO - 124.64.23.8 - - [28/Apr/2025 17:08:37] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-04-28 17:08:44,489 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:08:44] "GET / HTTP/1.0" 200 -
+2025-04-28 17:08:51,040 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:08:51] "GET / HTTP/1.0" 200 -
+2025-04-28 17:09:08,538 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:09:08] "GET / HTTP/1.0" 200 -
+2025-04-28 17:09:18,407 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:09:18] "GET /?residenceConsulate=beijing&hukouConsulate=beijing&identityType=EMPLOYED&applicationType=SINGLE&processType=TAX&previousVisit=true HTTP/1.0" 200 -
+2025-04-28 17:09:45,303 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:09:45] "GET / HTTP/1.0" 200 -
+2025-04-28 17:09:59,662 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:09:59] "GET / HTTP/1.0" 200 -
+2025-04-28 17:10:22,402 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "FAMILY", "visaType": "FIVE", "processType": "TAX"}
+2025-04-28 17:10:22,402 - app - INFO - 家庭申请，家庭成员数量: 1
+2025-04-28 17:10:22,402 - app - INFO - 家庭成员1: 居住地=beijing, 户籍地=shanghai
+2025-04-28 17:10:22,402 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-28 17:10:22,403 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于8万的税单（北京领区）']
+2025-04-28 17:10:22,403 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-28 17:10:22,403 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-28 17:10:22,403 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-28 17:10:22,403 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-28 17:10:22,404 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 五年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:10:22,404 - app - INFO - 生成的居住证明材料:
+2025-04-28 17:10:22,404 - app - INFO -   主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-28 17:10:22,404 - app - INFO -   1. 派出所开具的居住证确认单（原件）
+2025-04-28 17:10:22,404 - app - INFO -   2. 工作居住证确认单（可复印或扫描）
+2025-04-28 17:10:22,404 - app - INFO -   3. 居住证卡片原件（需提供原件）
+2025-04-28 17:10:22,404 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:10:22] "POST /api/generate HTTP/1.0" 200 -
+2025-04-28 17:10:40,734 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'FIVE', 'previousVisit': 'true', 'orderNumber': '46646767676768', 'isUrgent': 'true', 'familyMembers': '[{"relation":"CHILD","identityType":"EMPLOYED","residenceConsulate":"beijing","hukouConsulate":"shanghai","number":1}]'}
+2025-04-28 17:10:40,734 - app - DEBUG - 处理家庭申请: 家庭成员数据类型 <class 'list'>
+2025-04-28 17:10:40,734 - app - DEBUG - 家庭成员数量: 1
+2025-04-28 17:10:40,734 - app - DEBUG - 家庭成员 1: {'relation': 'CHILD', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-28 17:10:40,734 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'EMPLOYED', 'applicationType': 'FAMILY', 'processType': 'TAX', 'visaType': 'FIVE', 'previousVisit': 'true', 'orderNumber': '46646767676768', 'isUrgent': 'true', 'familyMembers': [{'relation': 'CHILD', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}]}
+2025-04-28 17:10:40,734 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-28 17:10:40,734 - document_generator.financial_materials - DEBUG - 生成财力证明材料: ['税单办理：显示年纳税大于8万的税单（北京领区）']
+2025-04-28 17:10:40,735 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=FAMILY
+2025-04-28 17:10:40,735 - document_generator.residence_materials - DEBUG - 处理家庭成员: 家庭成员1, residence=beijing, hukou=shanghai
+2025-04-28 17:10:40,735 - document_generator.residence_materials - INFO - 家庭成员需要居住证明: 家庭成员1
+2025-04-28 17:10:40,735 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-28 17:10:40,735 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 五年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:10:40,735 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 五年多次往返签证'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '财力证明': ['税单办理：显示年纳税大于8万的税单（北京领区）'], '居住证明材料': ['主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '家属材料': ['1.基本材料内的1、2、3、4项目', '2.与主申请人的关系证明'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:10:40,735 - app - DEBUG - 详细材料清单内容:
+2025-04-28 17:10:40,735 - app - DEBUG - 部分: 基本信息
+2025-04-28 17:10:40,735 - app - DEBUG -   - 居住地领区: 北京
+2025-04-28 17:10:40,735 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-28 17:10:40,735 - app - DEBUG -   - 申请类型: 五年多次往返签证
+2025-04-28 17:10:40,736 - app - DEBUG - 部分: 基本材料
+2025-04-28 17:10:40,737 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-28 17:10:40,737 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-28 17:10:40,737 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-28 17:10:40,737 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-28 17:10:40,737 - app - DEBUG - 部分: 财力证明
+2025-04-28 17:10:40,737 - app - DEBUG -   - 税单办理：显示年纳税大于8万的税单（北京领区）
+2025-04-28 17:10:40,737 - app - DEBUG - 部分: 居住证明材料
+2025-04-28 17:10:40,738 - app - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-28 17:10:40,738 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-28 17:10:40,738 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-28 17:10:40,738 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-28 17:10:40,738 - app - DEBUG - 部分: 家属材料
+2025-04-28 17:10:40,738 - app - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-28 17:10:40,738 - app - DEBUG -   - 2.与主申请人的关系证明
+2025-04-28 17:10:40,738 - app - DEBUG - 部分: 其他材料
+2025-04-28 17:10:40,739 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-28 17:10:40,739 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=未命名申请人, 签证类型=五年多次签证, 身份=在职人员, 领区=北京
+2025-04-28 17:10:40,739 - document_generator.pdf_generator - DEBUG - 家庭申请: 找到家庭成员数量: 1
+2025-04-28 17:10:40,739 - document_generator.pdf_generator - DEBUG - 家庭成员数据类型: <class 'list'>
+2025-04-28 17:10:40,739 - document_generator.pdf_generator - DEBUG - 家庭成员 1: {'relation': 'CHILD', 'identityType': 'EMPLOYED', 'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'number': 1}
+2025-04-28 17:10:40,739 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 申请类型: 五年多次往返签证
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG - 部分: 财力证明
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于8万的税单（北京领区）
+2025-04-28 17:10:40,740 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 主申请人, 家庭成员1需要提供以下居住证明材料（选择一种即可）：
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG - 部分: 家属材料
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 1.基本材料内的1、2、3、4项目
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 2.与主申请人的关系证明
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG - PDF生成的经济材料选项: None
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG - PDF生成的处理方式: TAX
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG - 实际PDF财力证明内容:
+2025-04-28 17:10:40,741 - document_generator.pdf_generator - DEBUG -   - 税单办理：显示年纳税大于8万的税单（北京领区）
+2025-04-28 17:10:40,742 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-28 17:10:40,742 - document_generator.pdf_generator - DEBUG - 访问日本状态: true, 类型: <class 'str'>
+2025-04-28 17:10:40,742 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmp3tsk0gdh.html
+2025-04-28 17:10:40,743 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-28 17:10:40,828 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-28 17:10:40,829 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-28 17:10:40,833 - weasyprint - WARNING - Ignored `box-shadow: 0 0 5px rgba(0,0,0,0.2)` at 19:13, unknown property.
+2025-04-28 17:10:41,113 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-28 17:10:41,113 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250428.pdf
+2025-04-28 17:10:41,113 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:10:41] "POST /api/generate_pdf HTTP/1.0" 200 -
+2025-04-28 17:11:17,000 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:11:16] "GET / HTTP/1.0" 200 -
+2025-04-28 17:11:53,401 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:11:53] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+2025-04-28 17:12:22,101 - app - INFO - 收到材料清单生成请求: {"residence": "beijing", "hukou": "shanghai", "applicationType": "SINGLE", "visaType": null, "processType": "STUDENT"}
+2025-04-28 17:12:22,101 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-28 17:12:22,101 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=SINGLE
+2025-04-28 17:12:22,101 - document_generator.residence_materials - INFO - 在读大学生不需要额外的居住证明
+2025-04-28 17:12:22,101 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 单次签证（学生专用）'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '学籍/学历证明': ['提供学信网在线学籍验证报告（领区内大学在读）'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:12:22,102 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:12:22] "POST /api/generate HTTP/1.0" 200 -
+2025-04-28 17:12:23,428 - app - DEBUG - 收到PDF生成请求，原始表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'STUDENT', 'applicationType': 'SINGLE', 'processType': 'STUDENT', 'visaType': 'SINGLE', 'previousVisit': 'true', 'isUrgent': 'false'}
+2025-04-28 17:12:23,428 - app - DEBUG - 处理后的表单数据: {'residenceConsulate': 'beijing', 'hukouConsulate': 'shanghai', 'identityType': 'STUDENT', 'applicationType': 'SINGLE', 'processType': 'STUDENT', 'visaType': 'SINGLE', 'previousVisit': 'true', 'isUrgent': 'false'}
+2025-04-28 17:12:23,428 - document_generator.basic_materials - DEBUG - 生成基本材料: ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）']
+2025-04-28 17:12:23,429 - document_generator.residence_materials - DEBUG - 处理居住证明材料: residence=beijing, hukou=shanghai, type=SINGLE
+2025-04-28 17:12:23,429 - document_generator.residence_materials - DEBUG - 生成的居住证明材料: ['以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）']
+2025-04-28 17:12:23,429 - document_generator.main - DEBUG - 生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 单次签证（学生专用）'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '学籍/学历证明': ['提供学信网在线学籍验证报告（领区内大学在读）'], '居住证明材料': ['以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:12:23,429 - app - DEBUG - 为PDF生成的材料清单: OrderedDict({'基本信息': ['居住地领区: 北京', '户籍所在地领区: 上海', '申请类型: 单次签证（学生专用）'], '基本材料': ['护照原件（剩余有效期大于7个月）', '签证申请表 + 小两寸白底证件照（近期3个月内拍摄）', '个人信息处理同意书 + 签证状态确认书', '户口本复印件（家庭户：户首页 + 本人页）'], '学籍/学历证明': ['提供学信网在线学籍验证报告（领区内大学在读）'], '居住证明材料': ['以下居住证明材料（选择一种即可）：', '1. 派出所开具的居住证确认单（原件）', '2. 工作居住证确认单（可复印或扫描）', '3. 居住证卡片原件（需提供原件）'], '其他材料': ['1. 和纸质照片一致的电子版照片']})
+2025-04-28 17:12:23,429 - app - DEBUG - 详细材料清单内容:
+2025-04-28 17:12:23,429 - app - DEBUG - 部分: 基本信息
+2025-04-28 17:12:23,429 - app - DEBUG -   - 居住地领区: 北京
+2025-04-28 17:12:23,429 - app - DEBUG -   - 户籍所在地领区: 上海
+2025-04-28 17:12:23,429 - app - DEBUG -   - 申请类型: 单次签证（学生专用）
+2025-04-28 17:12:23,429 - app - DEBUG - 部分: 基本材料
+2025-04-28 17:12:23,429 - app - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-28 17:12:23,430 - app - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-28 17:12:23,430 - app - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-28 17:12:23,430 - app - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-28 17:12:23,430 - app - DEBUG - 部分: 学籍/学历证明
+2025-04-28 17:12:23,430 - app - DEBUG -   - 提供学信网在线学籍验证报告（领区内大学在读）
+2025-04-28 17:12:23,430 - app - DEBUG - 部分: 居住证明材料
+2025-04-28 17:12:23,431 - app - DEBUG -   - 以下居住证明材料（选择一种即可）：
+2025-04-28 17:12:23,431 - app - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-28 17:12:23,431 - app - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-28 17:12:23,431 - app - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-28 17:12:23,431 - app - DEBUG - 部分: 其他材料
+2025-04-28 17:12:23,431 - app - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG - PDF模板数据: 申请人=未命名申请人, 签证类型=单次签证, 身份=学生, 领区=北京
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG - 生成PDF的材料清单详情:
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG - 部分: 基本信息
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG -   - 居住地领区: 北京
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG -   - 户籍所在地领区: 上海
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG -   - 申请类型: 单次签证（学生专用）
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG - 部分: 基本材料
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG -   - 护照原件（剩余有效期大于7个月）
+2025-04-28 17:12:23,432 - document_generator.pdf_generator - DEBUG -   - 签证申请表 + 小两寸白底证件照（近期3个月内拍摄）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 个人信息处理同意书 + 签证状态确认书
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 户口本复印件（家庭户：户首页 + 本人页）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - 部分: 学籍/学历证明
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 提供学信网在线学籍验证报告（领区内大学在读）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - 部分: 居住证明材料
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 以下居住证明材料（选择一种即可）：
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 1. 派出所开具的居住证确认单（原件）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 2. 工作居住证确认单（可复印或扫描）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 3. 居住证卡片原件（需提供原件）
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - 部分: 其他材料
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG -   - 1. 和纸质照片一致的电子版照片
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - PDF生成的经济材料选项: None
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - PDF生成的处理方式: STUDENT
+2025-04-28 17:12:23,433 - document_generator.pdf_generator - DEBUG - _generate_applicant_details接收到的form_data类型: <class 'dict'>
+2025-04-28 17:12:23,434 - document_generator.pdf_generator - DEBUG - 访问日本状态: true, 类型: <class 'str'>
+2025-04-28 17:12:23,434 - document_generator.pdf_generator - DEBUG - 已保存HTML到临时文件: /tmp/tmp5pcl7nlt.html
+2025-04-28 17:12:23,434 - document_generator.pdf_generator - DEBUG - 尝试使用WeasyPrint直接生成PDF
+2025-04-28 17:12:23,458 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 72:13, unknown property.
+2025-04-28 17:12:23,459 - weasyprint - WARNING - Ignored `box-shadow: 0 2px 5px rgba(0,0,0,0.1)` at 86:13, unknown property.
+2025-04-28 17:12:23,659 - document_generator.pdf_generator - DEBUG - WeasyPrint直接生成PDF成功
+2025-04-28 17:12:23,660 - app - DEBUG - PDF生成成功，文件名: visa_document_list_20250428.pdf
+2025-04-28 17:12:23,660 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:12:23] "POST /api/generate_pdf HTTP/1.0" 200 -
+2025-04-28 17:12:25,751 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:12:25] "[33mGET /wordpress/wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 17:13:05,254 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2025 17:13:05] "[33mGET /wordpress/wp-admin/setup-config.php HTTP/1.0[0m" 404 -
+2025-04-28 17:13:22,133 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 17:13:22,134 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 17:13:22,911 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 17:13:22,912 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 17:13:23,671 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 17:13:23,672 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 17:13:24,413 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 17:13:24,414 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'
+2025-04-28 17:13:25,170 - document_generator.pdf_generator - WARNING - wkhtmltopdf未安装，尝试安装...
+2025-04-28 17:13:25,171 - document_generator.pdf_generator - ERROR - 安装wkhtmltopdf失败: [Errno 2] No such file or directory: 'sudo'

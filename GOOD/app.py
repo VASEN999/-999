@@ -11,6 +11,10 @@ import urllib.parse
 
 app = Flask(__name__)
 
+# 生产环境配置
+app.config['ENV'] = 'production'
+app.config['DEBUG'] = False
+
 # 配置日志
 logging.basicConfig(
     level=logging.DEBUG,
@@ -234,6 +238,3 @@ def generate_pdf():
         return jsonify({
             "error": f"PDF生成过程中发生未知错误: {str(e)}"
         }), 500
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
