@@ -1036,6 +1036,17 @@
                         // 收集签证类型
                         pdfFormData.visaType = document.querySelector('input[name="visaType"]:checked')?.value || 'SINGLE';
                         
+                        // 收集经济材料选项（仅当选择普通经济材料办理时）
+                        if (pdfFormData.processType === 'NORMAL') {
+                            const economicMaterial = document.querySelector('input[name="economicMaterial"]:checked')?.value;
+                            if (economicMaterial) {
+                                pdfFormData.economicMaterial = economicMaterial;
+                                console.log('PDF请求收集到经济材料类型:', economicMaterial);
+                            } else {
+                                console.log('PDF请求未找到经济材料类型，用户可能未选择');
+                            }
+                        }
+                        
                         // 收集是否曾经访问日本
                         pdfFormData.previousVisit = document.querySelector('input[name="previousVisit"]:checked')?.value || 'false';
                         

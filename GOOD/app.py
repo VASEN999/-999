@@ -175,6 +175,14 @@ def generate_pdf():
                 "error": "目前暂不支持在其他领区申请日本签证，请选择北京或上海领区。"
             }), 400
         
+        # 检查必要的经济材料字段
+        process_type = form_data.get('processType', '')
+        if process_type == 'NORMAL' and not form_data.get('economicMaterial'):
+            logger.warning("PDF请求缺少经济材料类型字段")
+            return jsonify({
+                "error": "使用普通经济材料办理时，请选择一种经济材料类型"
+            }), 400
+        
         try:
             # 生成材料清单
             document_list = document_generator.generate_document_list(form_data)
