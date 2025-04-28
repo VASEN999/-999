@@ -75,7 +75,7 @@ class DocumentGenerator:
                     document_list['学籍/学历证明'] = student_materials
             else:
                 # 非学生身份使用特定大学生办理方式
-                document_list['学籍/学历证明及情况说明'] = ["非在读学生使用特定大学生办理方式，需要提供曾经的学籍或学历证明"]
+                document_list['学籍/学历证明及情况说明'] = ["非在读学生使用特定大学生办理方式，提供学信网电子注册备案表"]
         elif process_type in ['NORMAL', 'SIMPLIFIED'] and identity_type == 'STUDENT':
             # 学生使用普通经济材料办理时，添加学籍材料而不是普通身份材料
             student_materials = self.financial_generator._generate_student_materials(form_data)
@@ -96,9 +96,11 @@ class DocumentGenerator:
                     document_list[self._get_identity_section_name(identity_type)] = identity_materials
         
         # 4. 添加财力证明材料
-        financial_materials = self.financial_generator.get_materials(form_data)
-        if financial_materials:
-            document_list['财力证明'] = financial_materials
+        # 特定大学生单次办理不添加财力证明部分，学籍材料已经添加到学籍/学历证明部分
+        if process_type != 'STUDENT':
+            financial_materials = self.financial_generator.get_materials(form_data)
+            if financial_materials:
+                document_list['财力证明'] = financial_materials
         
         # 5. 添加居住证明材料
         residence_materials = self.residence_generator.get_materials(form_data)
@@ -131,6 +133,22 @@ class DocumentGenerator:
         other_materials = self.other_generator.get_materials(form_data)
         if other_materials:
             document_list['其他材料'] = other_materials
+            
+        # 8. 为北京领区、在职人员、特定大学生单次办理方式添加必要的税单要求
+        if (process_type == 'STUDENT' and 
+            identity_type == 'EMPLOYED' and 
+            residence_consulate.lower() == 'beijing'):
+            
+            # 确保其他材料部分存在
+            if '其他材料' not in document_list:
+                document_list['其他材料'] = []
+                
+            # 添加税单要求
+            document_list['其他材料'].append("2. 近一年的个人所得税税单（从去年到今年相同月份）")
+            document_list['其他材料'].append("3. 如果税单右下角盖章是在外领区，需要额外提供领区内的营业执照副本复印件")
+            
+            # 记录添加的税单要求
+            logger.debug("为北京领区在职人员特定大学生单次办理添加必要税单要求")
         
         # 确保返回的材料按照指定顺序排列
         ordered_list = OrderedDict()

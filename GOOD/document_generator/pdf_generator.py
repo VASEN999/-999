@@ -172,7 +172,12 @@ class PDFGenerator:
         document_items = []
         
         # 记录表单数据中的经济材料选项和实际生成的财力证明内容
-        logger.debug("PDF生成的经济材料选项: %s", form_data.get('economicMaterial') if form_data else None)
+        application_type = form_data.get('applicationType') if form_data else None
+        # 对于绑签申请和经济材料申请，不需要经济材料选项
+        if application_type not in ['BINDING', 'ECONOMIC']:
+            logger.debug("PDF生成的经济材料选项: %s", form_data.get('economicMaterial') if form_data else None)
+        else:
+            logger.debug("%s申请不需要经济材料选项", "绑签" if application_type == 'BINDING' else "经济材料")
         logger.debug("PDF生成的处理方式: %s", form_data.get('processType') if form_data else None)
         
         # 如果document_list中有财力证明部分，记录它的实际内容
@@ -185,6 +190,18 @@ class PDFGenerator:
         for section_name, materials in document_list.items():
             if not materials or section_name == '基本信息':  # 跳过空部分和基本信息部分
                 continue
+            
+            # 对于特定大学生单次办理方式，跳过财力证明部分
+            process_type = form_data.get('processType') if form_data else None
+            resident_identity = form_data.get('identityType') if form_data else None
+            residence_consulate = form_data.get('residenceConsulate', '').lower() if form_data else ''
+            
+            # 对于特定大学生单次办理方式，跳过财力证明部分，除非是北京领区+在职人员的特殊情况
+            if process_type == 'STUDENT' and section_name == '财力证明':
+                # 特殊情况：北京领区的在职人员需要税单
+                if not (residence_consulate == 'beijing' and resident_identity == 'EMPLOYED'):
+                    logger.debug("特定大学生单次办理方式：跳过财力证明部分")
+                    continue
             
             # 创建材料清单部分
             document_items.append(f'<div class="material-section">')
@@ -495,219 +512,154 @@ class PDFGenerator:
             except Exception as e:
                 logger.error("无法解析家庭成员字符串: %s, 错误: %s", family_members, str(e))
         
-        # 如果是家庭申请且有家庭成员，使用表格布局
+        # 创建表格布局 - 无论是单人还是家庭申请都使用表格
+        # 获取主要表单数据
+        identity_type = form_data.get('identityType', '')
+        residence_consulate = form_data.get('residenceConsulate', '')
+        hukou_consulate = form_data.get('hukouConsulate', '')
+        identity_text = self._get_identity_type_display(identity_type)
+        residence_text = self._get_consulate_display(residence_consulate)
+        hukou_text = self._get_consulate_display(hukou_consulate)
+        
+        # 创建表格布局
+        details.append('<table class="family-table" style="width:100%; border-collapse: collapse; margin-top:20px;">')
+        
+        # 表头
+        details.append('<tr>')
+        details.append('<th style="border:1px solid #ddd; padding:10px; text-align:left; background-color:#f5f5f5;"></th>')
+        details.append('<th style="border:1px solid #ddd; padding:10px; text-align:center; background-color:#f5f5f5;">主申请人</th>')
+        
+        # 如果是家庭申请且有家庭成员，添加家庭成员表头
         if application_type == 'FAMILY' and family_members and len(family_members) > 0:
-            logger.debug("家庭申请布局: 找到 %d 个家庭成员", len(family_members))
-            
-            # 创建表格布局
-            details.append('<table class="family-table" style="width:100%; border-collapse: collapse; margin-top:20px;">')
-            
-            # 表头
-            details.append('<tr>')
-            details.append('<th style="border:1px solid #ddd; padding:10px; text-align:left; background-color:#f5f5f5;"></th>')
-            details.append('<th style="border:1px solid #ddd; padding:10px; text-align:center; background-color:#f5f5f5;">主申请人</th>')
-            
             for i in range(len(family_members)):
                 details.append(f'<th style="border:1px solid #ddd; padding:10px; text-align:center; background-color:#f5f5f5;">家庭成员{i+1}</th>')
-            
-            details.append('</tr>')
-            
-            # 与主申请人关系行
-            details.append('<tr>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">与主申请人关系</td>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; text-align:center;">本人</td>')
-            
+        
+        details.append('</tr>')
+        
+        # 与主申请人关系行
+        details.append('<tr>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">与主申请人关系</td>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; text-align:center;">本人</td>')
+        
+        # 如果是家庭申请且有家庭成员，添加与主申请人的关系
+        if application_type == 'FAMILY' and family_members and len(family_members) > 0:
             for member in family_members:
                 relation = member.get('relation', '')
                 relation_text = self._get_relation_display(relation)
                 details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{relation_text}</td>')
-            
-            details.append('</tr>')
-            
-            # 居住地领区行
-            details.append('<tr>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">居住地领区</td>')
-            
-            residence_consulate = form_data.get('residenceConsulate', '')
-            residence_text = self._get_consulate_display(residence_consulate)
-            details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{residence_text}</td>')
-            
+        
+        details.append('</tr>')
+        
+        # 居住地领区行
+        details.append('<tr>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">居住地领区</td>')
+        details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{residence_text}</td>')
+        
+        # 如果是家庭申请且有家庭成员，添加居住地领区
+        if application_type == 'FAMILY' and family_members and len(family_members) > 0:
             for member in family_members:
                 member_residence = member.get('residenceConsulate', '')
                 member_residence_text = self._get_consulate_display(member_residence)
                 details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{member_residence_text}</td>')
-            
-            details.append('</tr>')
-            
-            # 户籍所在地领区行
-            details.append('<tr>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">户籍所在地领区</td>')
-            
-            hukou_consulate = form_data.get('hukouConsulate', '')
-            hukou_text = self._get_consulate_display(hukou_consulate)
-            details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{hukou_text}</td>')
-            
+        
+        details.append('</tr>')
+        
+        # 户籍所在地领区行
+        details.append('<tr>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">户籍所在地领区</td>')
+        details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{hukou_text}</td>')
+        
+        # 如果是家庭申请且有家庭成员，添加户籍所在地领区
+        if application_type == 'FAMILY' and family_members and len(family_members) > 0:
             for member in family_members:
                 member_hukou = member.get('hukouConsulate', '')
                 member_hukou_text = self._get_consulate_display(member_hukou)
                 details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{member_hukou_text}</td>')
-            
-            details.append('</tr>')
-            
-            # 申请人身份行
-            details.append('<tr>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">申请人身份</td>')
-            
-            identity_type = form_data.get('identityType', '')
-            identity_text = self._get_identity_type_display(identity_type)
-            details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{identity_text}</td>')
-            
+        
+        details.append('</tr>')
+        
+        # 申请人身份行
+        details.append('<tr>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">申请人身份</td>')
+        details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{identity_text}</td>')
+        
+        # 如果是家庭申请且有家庭成员，添加申请人身份
+        if application_type == 'FAMILY' and family_members and len(family_members) > 0:
             for member in family_members:
                 member_identity = member.get('identityType', '')
                 member_identity_text = self._get_identity_type_display(member_identity)
                 details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{member_identity_text}</td>')
-            
-            details.append('</tr>')
-            
-            # 是否曾经访问日本行
-            details.append('<tr>')
-            details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">是否曾经访问日本</td>')
-            
-            # 主申请人的访问状态
-            visited_text = "是" if visited_japan else "否"
-            details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{visited_text}</td>')
-            
+        
+        details.append('</tr>')
+        
+        # 是否曾经访问日本行
+        details.append('<tr>')
+        details.append('<td style="border:1px solid #ddd; padding:10px; font-weight:bold; background-color:#f9f9f9;">是否曾经访问日本</td>')
+        
+        # 主申请人的访问状态
+        visited_text = "是" if visited_japan else "否"
+        details.append(f'<td style="border:1px solid #ddd; padding:10px; text-align:center;">{visited_text}</td>')
+        
+        # 如果是家庭申请且有家庭成员，添加访问状态
+        if application_type == 'FAMILY' and family_members and len(family_members) > 0:
             # 家庭成员的访问状态留空，添加下划线
             for _ in family_members:
                 details.append('<td style="border:1px solid #ddd; padding:10px; text-align:center;">')
                 details.append('<div style="display:inline-block; min-width:30px; border-bottom:1px solid #000;">&nbsp;</div>')
                 details.append('</td>')
-            
-            details.append('</tr>')
-            
-            details.append('</table>')
-            
-            # 添加申请详情部分，使用美观的左右布局
-            details.append('<div class="details-section" style="margin-top:25px; background-color:#f8f8f8; border-radius:8px; padding:15px;">')
-            details.append('<h3 style="margin-top:0; border-bottom:1px solid #e0e0e0; padding-bottom:8px; margin-bottom:15px;">申请详情</h3>')
-            
-            # 计算申请人数
-            applicant_count = 1 + len(family_members)
-            
-            # 使用表格布局确保左右对齐美观
-            details.append('<table style="width:100%; border-collapse:collapse;">')
-            details.append('<tr>')
-            
-            # 左侧栏
-            details.append('<td style="width:50%; padding-right:15px; vertical-align:top;">')
-            
-            # 申请类型
-            application_text = self._get_application_type_display(application_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请类型: </strong>{application_text}</p>')
-            
-            # 申请人数
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请人数: </strong><span style="color:#2C73D2; font-weight:500;">{applicant_count}人</span></p>')
-            
-            details.append('</td>')  # 结束左侧栏
-            
-            # 右侧栏
-            details.append('<td style="width:50%; padding-left:15px; vertical-align:top; border-left:1px dashed #ddd;">')
-            
-            # 办理方式
-            process_type = form_data.get('processType', '')
-            process_text = self._get_process_type_display(process_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">办理方式: </strong>{process_text}</p>')
-            
-            # 签证类型
-            visa_type = form_data.get('visaType', '')
-            visa_text = self._get_visa_type_display(visa_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">签证类型: </strong><span style="color:#2C73D2; font-weight:500;">{visa_text}</span></p>')
-            
-            details.append('</td>')  # 结束右侧栏
-            details.append('</tr>')  # 结束行
-            details.append('</table>')  # 结束表格
-            details.append('</div>')  # 结束申请详情section
-            
-        else:
-            # 使用两栏布局 (非家庭申请或无家庭成员时)
-            details.append('<div class="two-column">')
-            
-            # 左侧栏 - 主申请人信息
-            details.append('<div class="column">')
-            details.append('<div class="details-section">')
-            details.append('<h3>主申请人信息</h3>')
-            
-            # 居住地领区
-            residence_consulate = form_data.get('residenceConsulate', '')
-            residence_text = self._get_consulate_display(residence_consulate)
-            details.append(f'<p class="member-detail"><strong>居住地领区: </strong><span class="highlight">{residence_text}</span></p>')
-            
-            # 户籍所在地领区
-            hukou_consulate = form_data.get('hukouConsulate', '')
-            hukou_text = self._get_consulate_display(hukou_consulate)
-            details.append(f'<p class="member-detail"><strong>户籍所在地领区: </strong>{hukou_text}</p>')
-            
-            # 申请人身份
-            identity_type = form_data.get('identityType', '')
-            identity_text = self._get_identity_type_display(identity_type)
-            details.append(f'<p class="member-detail"><strong>申请人身份: </strong>{identity_text}</p>')
-            
-            # 是否曾经访问日本
-            visited_text = "是" if visited_japan else "否"
-            details.append(f'<p class="member-detail"><strong>是否曾经访问日本: </strong>{visited_text}</p>')
-            
-            details.append('</div>')  # 结束主申请人信息section
-            
-            # 右侧栏 - 申请详情
-            details.append('</div><div class="column">')  # 结束左侧栏，开始右侧栏
-            
-            # 申请详情部分，美化样式
-            details.append('<div class="details-section" style="background-color:#f8f8f8; border-radius:8px; padding:15px;">')
-            details.append('<h3 style="margin-top:0; border-bottom:1px solid #e0e0e0; padding-bottom:8px; margin-bottom:15px;">申请详情</h3>')
-            
-            # 使用表格布局确保左右对齐美观
-            details.append('<table style="width:100%; border-collapse:collapse;">')
-            details.append('<tr>')
-            
-            # 左侧栏
-            details.append('<td style="width:50%; padding-right:15px; vertical-align:top;">')
-            
-            # 申请类型
-            application_text = self._get_application_type_display(application_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请类型: </strong>{application_text}</p>')
-            
-            # 申请人数
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请人数: </strong><span style="color:#2C73D2; font-weight:500;">1人</span></p>')
-            
-            details.append('</td>')  # 结束左侧栏
-            
-            # 右侧栏
-            details.append('<td style="width:50%; padding-left:15px; vertical-align:top; border-left:1px dashed #ddd;">')
-            
-            # 办理方式
-            process_type = form_data.get('processType', '')
-            process_text = self._get_process_type_display(process_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">办理方式: </strong>{process_text}</p>')
-            
-            # 签证类型
-            visa_type = form_data.get('visaType', '')
-            visa_text = self._get_visa_type_display(visa_type)
-            details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">签证类型: </strong><span style="color:#2C73D2; font-weight:500;">{visa_text}</span></p>')
-            
-            details.append('</td>')  # 结束右侧栏
-            details.append('</tr>')  # 结束行
-            details.append('</table>')  # 结束表格
-            
-            details.append('</div>')  # 结束申请详情section
-            details.append('</div>')  # 结束右侧栏
-            details.append('</div>')  # 结束两栏布局
-            
-            # 家庭申请但无家庭成员的情况
-            if application_type == 'FAMILY':
-                details.append('<div class="details-section" style="clear: both; padding-top: 15px;">')
-                details.append('<h3>家庭成员信息</h3>')
-                details.append('<p class="text-warning"><i class="bi bi-exclamation-triangle-fill me-1"></i> 您选择了家庭申请，但未添加任何家庭成员。请确认是否需要添加家庭成员信息。</p>')
-                details.append('</div>')  # 结束家庭成员section
+        
+        details.append('</tr>')
+        
+        details.append('</table>')
+        
+        # 添加申请详情部分，使用美观的左右布局
+        details.append('<div class="details-section" style="margin-top:25px; background-color:#f8f8f8; border-radius:8px; padding:15px;">')
+        details.append('<h3 style="margin-top:0; border-bottom:1px solid #e0e0e0; padding-bottom:8px; margin-bottom:15px;">申请详情</h3>')
+        
+        # 计算申请人数
+        applicant_count = 1 + (len(family_members) if application_type == 'FAMILY' and family_members else 0)
+        
+        # 使用表格布局确保左右对齐美观
+        details.append('<table style="width:100%; border-collapse:collapse;">')
+        details.append('<tr>')
+        
+        # 左侧栏
+        details.append('<td style="width:50%; padding-right:15px; vertical-align:top;">')
+        
+        # 申请类型
+        application_text = self._get_application_type_display(application_type)
+        details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请类型: </strong>{application_text}</p>')
+        
+        # 申请人数
+        details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">申请人数: </strong><span style="color:#2C73D2; font-weight:500;">{applicant_count}人</span></p>')
+        
+        details.append('</td>')  # 结束左侧栏
+        
+        # 右侧栏
+        details.append('<td style="width:50%; padding-left:15px; vertical-align:top; border-left:1px dashed #ddd;">')
+        
+        # 办理方式
+        process_type = form_data.get('processType', '')
+        process_text = self._get_process_type_display(process_type)
+        details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">办理方式: </strong>{process_text}</p>')
+        
+        # 签证类型
+        visa_type = form_data.get('visaType', '')
+        visa_text = self._get_visa_type_display(visa_type)
+        details.append(f'<p class="member-detail" style="margin:8px 0;"><strong style="display:inline-block; width:80px;">签证类型: </strong><span style="color:#2C73D2; font-weight:500;">{visa_text}</span></p>')
+        
+        details.append('</td>')  # 结束右侧栏
+        details.append('</tr>')  # 结束行
+        details.append('</table>')  # 结束表格
+        
+        details.append('</div>')  # 结束申请详情section
+        
+        # 家庭申请但无家庭成员的情况
+        if application_type == 'FAMILY' and (not family_members or len(family_members) == 0):
+            details.append('<div class="details-section" style="clear: both; padding-top: 15px;">')
+            details.append('<h3>家庭成员信息</h3>')
+            details.append('<p class="text-warning"><i class="bi bi-exclamation-triangle-fill me-1"></i> 您选择了家庭申请，但未添加任何家庭成员。请确认是否需要添加家庭成员信息。</p>')
+            details.append('</div>')  # 结束家庭成员section
         
         details.append('</div>')  # 结束details-box
         return ''.join(details)
@@ -725,6 +677,7 @@ class PDFGenerator:
     def _get_application_type_display(self, application_type):
         """获取申请类型显示名称"""
         application_types = {
+            'SINGLE': '单人申请',
             'INDIVIDUAL': '个人申请',
             'FAMILY': '家庭申请',
             'BINDING': '绑签申请',
@@ -735,9 +688,9 @@ class PDFGenerator:
     def _get_process_type_display(self, process_type):
         """获取办理方式显示名称"""
         process_types = {
-            'NORMAL': '常规办理',
+            'NORMAL': '普通经济材料办理',
             'SIMPLIFIED': '简化办理',
-            'STUDENT': '留学生办理',
+            'STUDENT': '特定大学生单次',
             'TAX': '税单办理'
         }
         return process_types.get(process_type, process_type)

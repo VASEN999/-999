@@ -177,7 +177,8 @@ def generate_pdf():
         
         # 检查必要的经济材料字段
         process_type = form_data.get('processType', '')
-        if process_type == 'NORMAL' and not form_data.get('economicMaterial'):
+        application_type = form_data.get('applicationType', '')
+        if process_type == 'NORMAL' and application_type not in ['BINDING', 'ECONOMIC'] and not form_data.get('economicMaterial'):
             logger.warning("PDF请求缺少经济材料类型字段")
             return jsonify({
                 "error": "使用普通经济材料办理时，请选择一种经济材料类型"
